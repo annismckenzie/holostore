@@ -328,6 +328,75 @@ impl HoloStoreClient {
         }
     }
 
+    pub async fn kv_set(&self, key: &[u8], value: &[u8]) -> anyhow::Result<()> {
+        match &self.backend {
+            HoloStoreClientBackend::Local(state) => {
+                tokio::time::timeout(
+                    self.timeout,
+                    state.execute_batch_set_direct(vec![(key.to_vec(), value.to_vec())]),
+                )
+                .await
+                .map_err(|_| {
+                    anyhow::anyhow!("kv_set local call timed out for {}", self.target)
+                })?
+            }
+            HoloStoreClientBackend::Rpc(client) => {
+                let request = volo_gen::holo_store::rpc::KvSetRequest {
+                    key: key.to_vec().into(),
+                    value: value.to_vec().into(),
+                };
+                tokio::time::timeout(self.timeout, client.kv_set(request))
+                    .await
+                    .map_err(|_| {
+                        anyhow::anyhow!("kv_set rpc timed out for {}", self.target)
+                    })?
+                    .map_err(|err| {
+                        anyhow::anyhow!("kv_set rpc failed for {}: {err}", self.target)
+                    })?;
+                Ok(())
+            }
+        }
+    }
+
+    pub async fn kv_batch_set(&self, entries: &[(&[u8], &[u8])]) -> anyhow::Result<u64> {
+        match &self.backend {
+            HoloStoreClientBackend::Local(state) => {
+                let items = entries
+                    .iter()
+                    .map(|(k, v)| (k.to_vec(), v.to_vec()))
+                    .collect();
+                tokio::time::timeout(self.timeout, state.execute_batch_set_direct(items))
+                    .await
+                    .map_err(|_| {
+                        anyhow::anyhow!("kv_batch_set local call timed out for {}", self.target)
+                    })??;
+                Ok(entries.len() as u64)
+            }
+            HoloStoreClientBackend::Rpc(client) => {
+                let rpc_entries = entries
+                    .iter()
+                    .map(|(k, v)| volo_gen::holo_store::rpc::KvEntry {
+                        key: k.to_vec().into(),
+                        value: v.to_vec().into(),
+                    })
+                    .collect();
+                let request = volo_gen::holo_store::rpc::KvBatchSetRequest {
+                    entries: rpc_entries,
+                };
+                let response =
+                    tokio::time::timeout(self.timeout, client.kv_batch_set(request))
+                        .await
+                        .map_err(|_| {
+                            anyhow::anyhow!("kv_batch_set rpc timed out for {}", self.target)
+                        })?
+                        .map_err(|err| {
+                            anyhow::anyhow!("kv_batch_set rpc failed for {}: {err}", self.target)
+                        })?;
+                Ok(response.into_inner().written)
+            }
+        }
+    }
+
     pub async fn range_stats(&self) -> anyhow::Result<Vec<RangeStat>> {
         match &self.backend {
             HoloStoreClientBackend::Local(state) => {

@@ -36,6 +36,8 @@ const (
 	HoloRpc_MarkVisible_FullMethodName                 = "/holo_store.rpc.HoloRpc/MarkVisible"
 	HoloRpc_KvGet_FullMethodName                       = "/holo_store.rpc.HoloRpc/KvGet"
 	HoloRpc_KvBatchGet_FullMethodName                  = "/holo_store.rpc.HoloRpc/KvBatchGet"
+	HoloRpc_KvSet_FullMethodName                       = "/holo_store.rpc.HoloRpc/KvSet"
+	HoloRpc_KvBatchSet_FullMethodName                  = "/holo_store.rpc.HoloRpc/KvBatchSet"
 	HoloRpc_Join_FullMethodName                        = "/holo_store.rpc.HoloRpc/Join"
 	HoloRpc_ClusterState_FullMethodName                = "/holo_store.rpc.HoloRpc/ClusterState"
 	HoloRpc_ClusterAddNode_FullMethodName              = "/holo_store.rpc.HoloRpc/ClusterAddNode"
@@ -76,6 +78,8 @@ type HoloRpcClient interface {
 	MarkVisible(ctx context.Context, in *MarkVisibleRequest, opts ...grpc.CallOption) (*MarkVisibleResponse, error)
 	KvGet(ctx context.Context, in *KvGetRequest, opts ...grpc.CallOption) (*KvGetResponse, error)
 	KvBatchGet(ctx context.Context, in *KvBatchGetRequest, opts ...grpc.CallOption) (*KvBatchGetResponse, error)
+	KvSet(ctx context.Context, in *KvSetRequest, opts ...grpc.CallOption) (*KvSetResponse, error)
+	KvBatchSet(ctx context.Context, in *KvBatchSetRequest, opts ...grpc.CallOption) (*KvBatchSetResponse, error)
 	Join(ctx context.Context, in *JoinRequest, opts ...grpc.CallOption) (*JoinResponse, error)
 	ClusterState(ctx context.Context, in *ClusterStateRequest, opts ...grpc.CallOption) (*ClusterStateResponse, error)
 	ClusterAddNode(ctx context.Context, in *ClusterAddNodeRequest, opts ...grpc.CallOption) (*ClusterAddNodeResponse, error)
@@ -273,6 +277,26 @@ func (c *holoRpcClient) KvBatchGet(ctx context.Context, in *KvBatchGetRequest, o
 	return out, nil
 }
 
+func (c *holoRpcClient) KvSet(ctx context.Context, in *KvSetRequest, opts ...grpc.CallOption) (*KvSetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(KvSetResponse)
+	err := c.cc.Invoke(ctx, HoloRpc_KvSet_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *holoRpcClient) KvBatchSet(ctx context.Context, in *KvBatchSetRequest, opts ...grpc.CallOption) (*KvBatchSetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(KvBatchSetResponse)
+	err := c.cc.Invoke(ctx, HoloRpc_KvBatchSet_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *holoRpcClient) Join(ctx context.Context, in *JoinRequest, opts ...grpc.CallOption) (*JoinResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(JoinResponse)
@@ -464,6 +488,8 @@ type HoloRpcServer interface {
 	MarkVisible(context.Context, *MarkVisibleRequest) (*MarkVisibleResponse, error)
 	KvGet(context.Context, *KvGetRequest) (*KvGetResponse, error)
 	KvBatchGet(context.Context, *KvBatchGetRequest) (*KvBatchGetResponse, error)
+	KvSet(context.Context, *KvSetRequest) (*KvSetResponse, error)
+	KvBatchSet(context.Context, *KvBatchSetRequest) (*KvBatchSetResponse, error)
 	Join(context.Context, *JoinRequest) (*JoinResponse, error)
 	ClusterState(context.Context, *ClusterStateRequest) (*ClusterStateResponse, error)
 	ClusterAddNode(context.Context, *ClusterAddNodeRequest) (*ClusterAddNodeResponse, error)
@@ -541,6 +567,12 @@ func (UnimplementedHoloRpcServer) KvGet(context.Context, *KvGetRequest) (*KvGetR
 }
 func (UnimplementedHoloRpcServer) KvBatchGet(context.Context, *KvBatchGetRequest) (*KvBatchGetResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method KvBatchGet not implemented")
+}
+func (UnimplementedHoloRpcServer) KvSet(context.Context, *KvSetRequest) (*KvSetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method KvSet not implemented")
+}
+func (UnimplementedHoloRpcServer) KvBatchSet(context.Context, *KvBatchSetRequest) (*KvBatchSetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method KvBatchSet not implemented")
 }
 func (UnimplementedHoloRpcServer) Join(context.Context, *JoinRequest) (*JoinResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Join not implemented")
@@ -916,6 +948,42 @@ func _HoloRpc_KvBatchGet_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HoloRpcServer).KvBatchGet(ctx, req.(*KvBatchGetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HoloRpc_KvSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KvSetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HoloRpcServer).KvSet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HoloRpc_KvSet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HoloRpcServer).KvSet(ctx, req.(*KvSetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HoloRpc_KvBatchSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KvBatchSetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HoloRpcServer).KvBatchSet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HoloRpc_KvBatchSet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HoloRpcServer).KvBatchSet(ctx, req.(*KvBatchSetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1300,6 +1368,14 @@ var HoloRpc_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "KvBatchGet",
 			Handler:    _HoloRpc_KvBatchGet_Handler,
+		},
+		{
+			MethodName: "KvSet",
+			Handler:    _HoloRpc_KvSet_Handler,
+		},
+		{
+			MethodName: "KvBatchSet",
+			Handler:    _HoloRpc_KvBatchSet_Handler,
 		},
 		{
 			MethodName: "Join",

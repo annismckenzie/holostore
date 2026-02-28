@@ -22,6 +22,8 @@ service HoloRpc {
   rpc MarkVisible(MarkVisibleRequest) returns (MarkVisibleResponse);
   rpc KvGet(KvGetRequest) returns (KvGetResponse);
   rpc KvBatchGet(KvBatchGetRequest) returns (KvBatchGetResponse);
+  rpc KvSet(KvSetRequest) returns (KvSetResponse);
+  rpc KvBatchSet(KvBatchSetRequest) returns (KvBatchSetResponse);
   rpc Join(JoinRequest) returns (JoinResponse);
   rpc ClusterState(ClusterStateRequest) returns (ClusterStateResponse);
   rpc ClusterAddNode(ClusterAddNodeRequest) returns (ClusterAddNodeResponse);
@@ -72,6 +74,29 @@ message KvBatchGetRequest {
 
 message KvBatchGetResponse {
   repeated KvGetResponse responses = 1;
+}
+
+message KvSetRequest {
+  bytes key = 1;
+  bytes value = 2;
+}
+
+message KvSetResponse {
+  bool ok = 1;
+}
+
+message KvEntry {
+  bytes key = 1;
+  bytes value = 2;
+}
+
+message KvBatchSetRequest {
+  repeated KvEntry entries = 1;
+}
+
+message KvBatchSetResponse {
+  bool ok = 1;
+  uint64 written = 2;
 }
 
 enum TxnStatus {

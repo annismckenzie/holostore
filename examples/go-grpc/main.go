@@ -1,7 +1,7 @@
 // Go gRPC client example for HoloStore.
 //
 // Demonstrates the main client-facing RPCs against a local 3-node cluster:
-//   - Seed data via Redis protocol (SET — no gRPC KvSet exists)
+//   - Write keys via gRPC (KvSet, KvBatchSet)
 //   - Read keys via gRPC (KvGet, KvBatchGet)
 //   - Inspect cluster state (ClusterState)
 //   - Query per-shard statistics (RangeStats)
@@ -16,7 +16,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"net"
 	"time"
 
 	pb "holostore-go-example/holo_store/rpc"
@@ -26,10 +25,7 @@ import (
 )
 
 // Cluster addresses matching the default 3-node cluster (scripts/start_cluster.sh).
-var (
-	grpcAddrs  = []string{"127.0.0.1:15051", "127.0.0.1:15052", "127.0.0.1:15053"}
-	redisAddrs = []string{"127.0.0.1:16379", "127.0.0.1:16380", "127.0.0.1:16381"}
-)
+var grpcAddrs = []string{"127.0.0.1:15051", "127.0.0.1:15052", "127.0.0.1:15053"}
 
 func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
@@ -45,46 +41,75 @@ func main() {
 	client := pb.NewHoloRpcClient(conn)
 	fmt.Printf("Connected to %s\n\n", grpcAddrs[0])
 
-	// --- 2. Seed data via Redis protocol ---
-	fmt.Println("=== Seeding data via Redis SET ===")
-	keys := map[string]string{
-		"greeting": "hello world",
-		"language": "Go",
-		"project":  "HoloStore",
-	}
-	for k, v := range keys {
-		if err := redisSet(redisAddrs[0], k, v); err != nil {
-			log.Fatalf("redisSet(%s): %v", k, err)
-		}
-		fmt.Printf("  SET %s = %q\n", k, v)
-	}
+	// --- 2. KvSet — write a single key ---
+	fmt.Println("=== KvSet: write a single key ===")
+	demoKvSet(ctx, client, "greeting", "hello world")
 	fmt.Println()
 
-	// --- 3. KvGet — read a single key ---
+	// --- 3. KvBatchSet — write multiple keys at once ---
+	fmt.Println("=== KvBatchSet: write multiple keys ===")
+	demoKvBatchSet(ctx, client, map[string]string{
+		"language": "Go",
+		"project":  "HoloStore",
+	})
+	fmt.Println()
+
+	// --- 4. KvGet — read a single key ---
 	fmt.Println("=== KvGet: read a single key ===")
 	demoKvGet(ctx, client, "greeting")
 	fmt.Println()
 
-	// --- 4. KvBatchGet — read multiple keys at once ---
+	// --- 5. KvBatchGet — read multiple keys at once ---
 	fmt.Println("=== KvBatchGet: read multiple keys ===")
 	demoKvBatchGet(ctx, client, []string{"greeting", "language", "project", "nonexistent"})
 	fmt.Println()
 
-	// --- 5. ClusterState — inspect the cluster ---
+	// --- 6. ClusterState — inspect the cluster ---
 	fmt.Println("=== ClusterState: cluster health ===")
 	demoClusterState(ctx, client)
 	fmt.Println()
 
-	// --- 6. RangeStats — per-shard statistics ---
+	// --- 7. RangeStats — per-shard statistics ---
 	fmt.Println("=== RangeStats: per-shard statistics ===")
 	demoRangeStats(ctx, client)
 	fmt.Println()
 
-	// --- 7. Multi-node reads — verify consistency ---
+	// --- 8. Multi-node reads — verify consistency ---
 	fmt.Println("=== Multi-node reads: consistency check ===")
 	demoMultiNodeRead(ctx, "greeting")
 
 	fmt.Println("\nDone.")
+}
+
+// demoKvSet writes a single key/value pair through Accord consensus.
+func demoKvSet(ctx context.Context, client pb.HoloRpcClient, key, value string) {
+	resp, err := client.KvSet(ctx, &pb.KvSetRequest{
+		Key:   []byte(key),
+		Value: []byte(value),
+	})
+	if err != nil {
+		log.Fatalf("KvSet(%s): %v", key, err)
+	}
+	fmt.Printf("  SET %s = %q  (ok=%v)\n", key, value, resp.Ok)
+}
+
+// demoKvBatchSet writes multiple key/value pairs in a single RPC.
+func demoKvBatchSet(ctx context.Context, client pb.HoloRpcClient, kvs map[string]string) {
+	entries := make([]*pb.KvEntry, 0, len(kvs))
+	for k, v := range kvs {
+		entries = append(entries, &pb.KvEntry{
+			Key:   []byte(k),
+			Value: []byte(v),
+		})
+	}
+	resp, err := client.KvBatchSet(ctx, &pb.KvBatchSetRequest{Entries: entries})
+	if err != nil {
+		log.Fatalf("KvBatchSet: %v", err)
+	}
+	fmt.Printf("  wrote %d key(s)  (ok=%v)\n", resp.Written, resp.Ok)
+	for k, v := range kvs {
+		fmt.Printf("    %s = %q\n", k, v)
+	}
 }
 
 // demoKvGet reads a single key and prints the value and version.
@@ -182,35 +207,4 @@ func demoMultiNodeRead(ctx context.Context, key string) {
 			fmt.Printf("  Node %d (%s): %s = (not found)\n", i+1, addr, key)
 		}
 	}
-}
-
-// --- Redis RESP2 helper (no external dependencies) ---
-
-// redisSet sends a SET command using the Redis RESP2 protocol over a raw TCP connection.
-// HoloStore's gRPC API has KvGet but no KvSet — writes go through the Redis interface.
-func redisSet(addr, key, value string) error {
-	conn, err := net.DialTimeout("tcp", addr, 5*time.Second)
-	if err != nil {
-		return fmt.Errorf("dial %s: %w", addr, err)
-	}
-	defer conn.Close()
-	conn.SetDeadline(time.Now().Add(5 * time.Second))
-
-	// RESP2: *3\r\n$3\r\nSET\r\n$<keylen>\r\n<key>\r\n$<vallen>\r\n<val>\r\n
-	cmd := fmt.Sprintf("*3\r\n$3\r\nSET\r\n$%d\r\n%s\r\n$%d\r\n%s\r\n",
-		len(key), key, len(value), value)
-	if _, err := conn.Write([]byte(cmd)); err != nil {
-		return fmt.Errorf("write: %w", err)
-	}
-
-	buf := make([]byte, 256)
-	n, err := conn.Read(buf)
-	if err != nil {
-		return fmt.Errorf("read: %w", err)
-	}
-	resp := string(buf[:n])
-	if resp != "+OK\r\n" {
-		return fmt.Errorf("unexpected response: %q", resp)
-	}
-	return nil
 }
