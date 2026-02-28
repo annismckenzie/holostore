@@ -27,6 +27,8 @@ In this repository we implement:
 - A Redis protocol surface for easy benchmarking.
 
 **Documentation**
+- [SDK & client guide](docs/SDK.md)
+- [Contributing](CONTRIBUTING.md)
 - [Design overview](crates/holo_store/docs/DESIGN.md)
 - [Storage engine](crates/holo_store/docs/STORAGE.md)
 - [Read modes](crates/holo_store/docs/READ_MODES.md)
