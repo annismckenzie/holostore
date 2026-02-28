@@ -1,18 +1,18 @@
 # Go gRPC Client Example
 
 A self-contained Go program that demonstrates how to interact with a HoloStore
-cluster using the gRPC API.
+cluster using the gRPC API — both reads and writes.
 
 ## What it covers
 
 1. **Connect** to a node via gRPC
-2. **Seed data** via the Redis protocol (there is no `KvSet` gRPC RPC — writes
-   go through the Redis interface)
-3. **KvGet** — read a single key, inspect its value and version
-4. **KvBatchGet** — read multiple keys in one RPC call
-5. **ClusterState** — fetch and pretty-print the cluster state JSON
-6. **RangeStats** — query per-shard statistics (record counts, ops, leaseholder)
-7. **Multi-node reads** — connect to all three nodes and read the same key to
+2. **KvSet** — write a single key through Accord consensus
+3. **KvBatchSet** — write multiple keys in one RPC call
+4. **KvGet** — read a single key, inspect its value and version
+5. **KvBatchGet** — read multiple keys in one RPC call
+6. **ClusterState** — fetch and pretty-print the cluster state JSON
+7. **RangeStats** — query per-shard statistics (record counts, ops, leaseholder)
+8. **Multi-node reads** — connect to all three nodes and read the same key to
    verify strong consistency
 
 ## Prerequisites
@@ -42,10 +42,13 @@ go run .
 === Connecting to node 1 via gRPC ===
 Connected to 127.0.0.1:15051
 
-=== Seeding data via Redis SET ===
-  SET greeting = "hello world"
-  SET language = "Go"
-  SET project = "HoloStore"
+=== KvSet: write a single key ===
+  SET greeting = "hello world"  (ok=true)
+
+=== KvBatchSet: write multiple keys ===
+  wrote 2 key(s)  (ok=true)
+    language = "Go"
+    project = "HoloStore"
 
 === KvGet: read a single key ===
   greeting = "hello world"  (version: seq=..., txn=1:...)
@@ -86,10 +89,3 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 ```
 
 This requires `protoc` (the protobuf compiler) on your `PATH`.
-
-## Why writes use Redis
-
-HoloStore's gRPC `HoloRpc` service exposes `KvGet` and `KvBatchGet` for reads,
-but there is no `KvSet` RPC. Key/value writes are submitted through the Redis
-protocol interface (`SET` command on port 16379). The example includes a minimal
-RESP2 helper that writes via raw TCP — no external Redis library needed.

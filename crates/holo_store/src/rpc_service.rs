@@ -862,6 +862,43 @@ impl rpc::HoloRpc for RpcService {
         }))
     }
 
+    /// Handle a KV SET RPC — write a single key through Accord consensus.
+    async fn kv_set(
+        &self,
+        req: volo_grpc::Request<rpc::KvSetRequest>,
+    ) -> Result<volo_grpc::Response<rpc::KvSetResponse>, volo_grpc::Status> {
+        self.maybe_delay().await;
+        let req = req.into_inner();
+        self.state
+            .execute_batch_set_direct(vec![(req.key.to_vec(), req.value.to_vec())])
+            .await
+            .map_err(|e| volo_grpc::Status::internal(format!("kv_set failed: {e}")))?;
+        Ok(volo_grpc::Response::new(rpc::KvSetResponse { ok: true }))
+    }
+
+    /// Handle a KV batch SET RPC — write multiple keys through Accord consensus.
+    async fn kv_batch_set(
+        &self,
+        req: volo_grpc::Request<rpc::KvBatchSetRequest>,
+    ) -> Result<volo_grpc::Response<rpc::KvBatchSetResponse>, volo_grpc::Status> {
+        self.maybe_delay().await;
+        let req = req.into_inner();
+        let items: Vec<(Vec<u8>, Vec<u8>)> = req
+            .entries
+            .into_iter()
+            .map(|e| (e.key.to_vec(), e.value.to_vec()))
+            .collect();
+        let count = items.len() as u64;
+        self.state
+            .execute_batch_set_direct(items)
+            .await
+            .map_err(|e| volo_grpc::Status::internal(format!("kv_batch_set failed: {e}")))?;
+        Ok(volo_grpc::Response::new(rpc::KvBatchSetResponse {
+            ok: true,
+            written: count,
+        }))
+    }
+
     /// Handle a join RPC, returning the initial membership string.
     async fn join(
         &self,

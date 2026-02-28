@@ -528,6 +528,250 @@ func (x *KvBatchGetResponse) GetResponses() []*KvGetResponse {
 	return nil
 }
 
+type KvSetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Key           []byte                 `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Value         []byte                 `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *KvSetRequest) Reset() {
+	*x = KvSetRequest{}
+	mi := &file_holo_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *KvSetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*KvSetRequest) ProtoMessage() {}
+
+func (x *KvSetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_holo_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use KvSetRequest.ProtoReflect.Descriptor instead.
+func (*KvSetRequest) Descriptor() ([]byte, []int) {
+	return file_holo_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *KvSetRequest) GetKey() []byte {
+	if x != nil {
+		return x.Key
+	}
+	return nil
+}
+
+func (x *KvSetRequest) GetValue() []byte {
+	if x != nil {
+		return x.Value
+	}
+	return nil
+}
+
+type KvSetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Ok            bool                   `protobuf:"varint,1,opt,name=ok,proto3" json:"ok,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *KvSetResponse) Reset() {
+	*x = KvSetResponse{}
+	mi := &file_holo_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *KvSetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*KvSetResponse) ProtoMessage() {}
+
+func (x *KvSetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_holo_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use KvSetResponse.ProtoReflect.Descriptor instead.
+func (*KvSetResponse) Descriptor() ([]byte, []int) {
+	return file_holo_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *KvSetResponse) GetOk() bool {
+	if x != nil {
+		return x.Ok
+	}
+	return false
+}
+
+type KvEntry struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Key           []byte                 `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Value         []byte                 `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *KvEntry) Reset() {
+	*x = KvEntry{}
+	mi := &file_holo_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *KvEntry) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*KvEntry) ProtoMessage() {}
+
+func (x *KvEntry) ProtoReflect() protoreflect.Message {
+	mi := &file_holo_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use KvEntry.ProtoReflect.Descriptor instead.
+func (*KvEntry) Descriptor() ([]byte, []int) {
+	return file_holo_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *KvEntry) GetKey() []byte {
+	if x != nil {
+		return x.Key
+	}
+	return nil
+}
+
+func (x *KvEntry) GetValue() []byte {
+	if x != nil {
+		return x.Value
+	}
+	return nil
+}
+
+type KvBatchSetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Entries       []*KvEntry             `protobuf:"bytes,1,rep,name=entries,proto3" json:"entries,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *KvBatchSetRequest) Reset() {
+	*x = KvBatchSetRequest{}
+	mi := &file_holo_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *KvBatchSetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*KvBatchSetRequest) ProtoMessage() {}
+
+func (x *KvBatchSetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_holo_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use KvBatchSetRequest.ProtoReflect.Descriptor instead.
+func (*KvBatchSetRequest) Descriptor() ([]byte, []int) {
+	return file_holo_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *KvBatchSetRequest) GetEntries() []*KvEntry {
+	if x != nil {
+		return x.Entries
+	}
+	return nil
+}
+
+type KvBatchSetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Ok            bool                   `protobuf:"varint,1,opt,name=ok,proto3" json:"ok,omitempty"`
+	Written       uint64                 `protobuf:"varint,2,opt,name=written,proto3" json:"written,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *KvBatchSetResponse) Reset() {
+	*x = KvBatchSetResponse{}
+	mi := &file_holo_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *KvBatchSetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*KvBatchSetResponse) ProtoMessage() {}
+
+func (x *KvBatchSetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_holo_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use KvBatchSetResponse.ProtoReflect.Descriptor instead.
+func (*KvBatchSetResponse) Descriptor() ([]byte, []int) {
+	return file_holo_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *KvBatchSetResponse) GetOk() bool {
+	if x != nil {
+		return x.Ok
+	}
+	return false
+}
+
+func (x *KvBatchSetResponse) GetWritten() uint64 {
+	if x != nil {
+		return x.Written
+	}
+	return 0
+}
+
 type PreAcceptRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	GroupId       uint64                 `protobuf:"varint,1,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
@@ -542,7 +786,7 @@ type PreAcceptRequest struct {
 
 func (x *PreAcceptRequest) Reset() {
 	*x = PreAcceptRequest{}
-	mi := &file_holo_proto_msgTypes[7]
+	mi := &file_holo_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -554,7 +798,7 @@ func (x *PreAcceptRequest) String() string {
 func (*PreAcceptRequest) ProtoMessage() {}
 
 func (x *PreAcceptRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[7]
+	mi := &file_holo_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -567,7 +811,7 @@ func (x *PreAcceptRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PreAcceptRequest.ProtoReflect.Descriptor instead.
 func (*PreAcceptRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{7}
+	return file_holo_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *PreAcceptRequest) GetGroupId() uint64 {
@@ -624,7 +868,7 @@ type PreAcceptResponse struct {
 
 func (x *PreAcceptResponse) Reset() {
 	*x = PreAcceptResponse{}
-	mi := &file_holo_proto_msgTypes[8]
+	mi := &file_holo_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -636,7 +880,7 @@ func (x *PreAcceptResponse) String() string {
 func (*PreAcceptResponse) ProtoMessage() {}
 
 func (x *PreAcceptResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[8]
+	mi := &file_holo_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -649,7 +893,7 @@ func (x *PreAcceptResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PreAcceptResponse.ProtoReflect.Descriptor instead.
 func (*PreAcceptResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{8}
+	return file_holo_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *PreAcceptResponse) GetOk() bool {
@@ -689,7 +933,7 @@ type PreAcceptBatchRequest struct {
 
 func (x *PreAcceptBatchRequest) Reset() {
 	*x = PreAcceptBatchRequest{}
-	mi := &file_holo_proto_msgTypes[9]
+	mi := &file_holo_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -701,7 +945,7 @@ func (x *PreAcceptBatchRequest) String() string {
 func (*PreAcceptBatchRequest) ProtoMessage() {}
 
 func (x *PreAcceptBatchRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[9]
+	mi := &file_holo_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -714,7 +958,7 @@ func (x *PreAcceptBatchRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PreAcceptBatchRequest.ProtoReflect.Descriptor instead.
 func (*PreAcceptBatchRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{9}
+	return file_holo_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *PreAcceptBatchRequest) GetRequests() []*PreAcceptRequest {
@@ -733,7 +977,7 @@ type PreAcceptBatchResponse struct {
 
 func (x *PreAcceptBatchResponse) Reset() {
 	*x = PreAcceptBatchResponse{}
-	mi := &file_holo_proto_msgTypes[10]
+	mi := &file_holo_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -745,7 +989,7 @@ func (x *PreAcceptBatchResponse) String() string {
 func (*PreAcceptBatchResponse) ProtoMessage() {}
 
 func (x *PreAcceptBatchResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[10]
+	mi := &file_holo_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -758,7 +1002,7 @@ func (x *PreAcceptBatchResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PreAcceptBatchResponse.ProtoReflect.Descriptor instead.
 func (*PreAcceptBatchResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{10}
+	return file_holo_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *PreAcceptBatchResponse) GetResponses() []*PreAcceptResponse {
@@ -784,7 +1028,7 @@ type AcceptRequest struct {
 
 func (x *AcceptRequest) Reset() {
 	*x = AcceptRequest{}
-	mi := &file_holo_proto_msgTypes[11]
+	mi := &file_holo_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -796,7 +1040,7 @@ func (x *AcceptRequest) String() string {
 func (*AcceptRequest) ProtoMessage() {}
 
 func (x *AcceptRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[11]
+	mi := &file_holo_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -809,7 +1053,7 @@ func (x *AcceptRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AcceptRequest.ProtoReflect.Descriptor instead.
 func (*AcceptRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{11}
+	return file_holo_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *AcceptRequest) GetGroupId() uint64 {
@@ -878,7 +1122,7 @@ type AcceptResponse struct {
 
 func (x *AcceptResponse) Reset() {
 	*x = AcceptResponse{}
-	mi := &file_holo_proto_msgTypes[12]
+	mi := &file_holo_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -890,7 +1134,7 @@ func (x *AcceptResponse) String() string {
 func (*AcceptResponse) ProtoMessage() {}
 
 func (x *AcceptResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[12]
+	mi := &file_holo_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -903,7 +1147,7 @@ func (x *AcceptResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AcceptResponse.ProtoReflect.Descriptor instead.
 func (*AcceptResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{12}
+	return file_holo_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *AcceptResponse) GetOk() bool {
@@ -929,7 +1173,7 @@ type AcceptBatchRequest struct {
 
 func (x *AcceptBatchRequest) Reset() {
 	*x = AcceptBatchRequest{}
-	mi := &file_holo_proto_msgTypes[13]
+	mi := &file_holo_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -941,7 +1185,7 @@ func (x *AcceptBatchRequest) String() string {
 func (*AcceptBatchRequest) ProtoMessage() {}
 
 func (x *AcceptBatchRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[13]
+	mi := &file_holo_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -954,7 +1198,7 @@ func (x *AcceptBatchRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AcceptBatchRequest.ProtoReflect.Descriptor instead.
 func (*AcceptBatchRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{13}
+	return file_holo_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *AcceptBatchRequest) GetRequests() []*AcceptRequest {
@@ -973,7 +1217,7 @@ type AcceptBatchResponse struct {
 
 func (x *AcceptBatchResponse) Reset() {
 	*x = AcceptBatchResponse{}
-	mi := &file_holo_proto_msgTypes[14]
+	mi := &file_holo_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -985,7 +1229,7 @@ func (x *AcceptBatchResponse) String() string {
 func (*AcceptBatchResponse) ProtoMessage() {}
 
 func (x *AcceptBatchResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[14]
+	mi := &file_holo_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -998,7 +1242,7 @@ func (x *AcceptBatchResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AcceptBatchResponse.ProtoReflect.Descriptor instead.
 func (*AcceptBatchResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{14}
+	return file_holo_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *AcceptBatchResponse) GetResponses() []*AcceptResponse {
@@ -1024,7 +1268,7 @@ type CommitRequest struct {
 
 func (x *CommitRequest) Reset() {
 	*x = CommitRequest{}
-	mi := &file_holo_proto_msgTypes[15]
+	mi := &file_holo_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1036,7 +1280,7 @@ func (x *CommitRequest) String() string {
 func (*CommitRequest) ProtoMessage() {}
 
 func (x *CommitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[15]
+	mi := &file_holo_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1049,7 +1293,7 @@ func (x *CommitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommitRequest.ProtoReflect.Descriptor instead.
 func (*CommitRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{15}
+	return file_holo_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *CommitRequest) GetGroupId() uint64 {
@@ -1117,7 +1361,7 @@ type CommitResponse struct {
 
 func (x *CommitResponse) Reset() {
 	*x = CommitResponse{}
-	mi := &file_holo_proto_msgTypes[16]
+	mi := &file_holo_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1129,7 +1373,7 @@ func (x *CommitResponse) String() string {
 func (*CommitResponse) ProtoMessage() {}
 
 func (x *CommitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[16]
+	mi := &file_holo_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1142,7 +1386,7 @@ func (x *CommitResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommitResponse.ProtoReflect.Descriptor instead.
 func (*CommitResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{16}
+	return file_holo_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *CommitResponse) GetOk() bool {
@@ -1161,7 +1405,7 @@ type CommitBatchRequest struct {
 
 func (x *CommitBatchRequest) Reset() {
 	*x = CommitBatchRequest{}
-	mi := &file_holo_proto_msgTypes[17]
+	mi := &file_holo_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1173,7 +1417,7 @@ func (x *CommitBatchRequest) String() string {
 func (*CommitBatchRequest) ProtoMessage() {}
 
 func (x *CommitBatchRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[17]
+	mi := &file_holo_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1186,7 +1430,7 @@ func (x *CommitBatchRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommitBatchRequest.ProtoReflect.Descriptor instead.
 func (*CommitBatchRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{17}
+	return file_holo_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *CommitBatchRequest) GetRequests() []*CommitRequest {
@@ -1205,7 +1449,7 @@ type CommitBatchResponse struct {
 
 func (x *CommitBatchResponse) Reset() {
 	*x = CommitBatchResponse{}
-	mi := &file_holo_proto_msgTypes[18]
+	mi := &file_holo_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1217,7 +1461,7 @@ func (x *CommitBatchResponse) String() string {
 func (*CommitBatchResponse) ProtoMessage() {}
 
 func (x *CommitBatchResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[18]
+	mi := &file_holo_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1230,7 +1474,7 @@ func (x *CommitBatchResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommitBatchResponse.ProtoReflect.Descriptor instead.
 func (*CommitBatchResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{18}
+	return file_holo_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *CommitBatchResponse) GetResponses() []*CommitResponse {
@@ -1251,7 +1495,7 @@ type RecoverRequest struct {
 
 func (x *RecoverRequest) Reset() {
 	*x = RecoverRequest{}
-	mi := &file_holo_proto_msgTypes[19]
+	mi := &file_holo_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1263,7 +1507,7 @@ func (x *RecoverRequest) String() string {
 func (*RecoverRequest) ProtoMessage() {}
 
 func (x *RecoverRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[19]
+	mi := &file_holo_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1276,7 +1520,7 @@ func (x *RecoverRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RecoverRequest.ProtoReflect.Descriptor instead.
 func (*RecoverRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{19}
+	return file_holo_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *RecoverRequest) GetGroupId() uint64 {
@@ -1315,7 +1559,7 @@ type RecoverResponse struct {
 
 func (x *RecoverResponse) Reset() {
 	*x = RecoverResponse{}
-	mi := &file_holo_proto_msgTypes[20]
+	mi := &file_holo_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1327,7 +1571,7 @@ func (x *RecoverResponse) String() string {
 func (*RecoverResponse) ProtoMessage() {}
 
 func (x *RecoverResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[20]
+	mi := &file_holo_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1340,7 +1584,7 @@ func (x *RecoverResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RecoverResponse.ProtoReflect.Descriptor instead.
 func (*RecoverResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{20}
+	return file_holo_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *RecoverResponse) GetOk() bool {
@@ -1401,7 +1645,7 @@ type RecoverBatchRequest struct {
 
 func (x *RecoverBatchRequest) Reset() {
 	*x = RecoverBatchRequest{}
-	mi := &file_holo_proto_msgTypes[21]
+	mi := &file_holo_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1413,7 +1657,7 @@ func (x *RecoverBatchRequest) String() string {
 func (*RecoverBatchRequest) ProtoMessage() {}
 
 func (x *RecoverBatchRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[21]
+	mi := &file_holo_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1426,7 +1670,7 @@ func (x *RecoverBatchRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RecoverBatchRequest.ProtoReflect.Descriptor instead.
 func (*RecoverBatchRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{21}
+	return file_holo_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *RecoverBatchRequest) GetRequests() []*RecoverRequest {
@@ -1445,7 +1689,7 @@ type RecoverBatchResponse struct {
 
 func (x *RecoverBatchResponse) Reset() {
 	*x = RecoverBatchResponse{}
-	mi := &file_holo_proto_msgTypes[22]
+	mi := &file_holo_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1457,7 +1701,7 @@ func (x *RecoverBatchResponse) String() string {
 func (*RecoverBatchResponse) ProtoMessage() {}
 
 func (x *RecoverBatchResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[22]
+	mi := &file_holo_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1470,7 +1714,7 @@ func (x *RecoverBatchResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RecoverBatchResponse.ProtoReflect.Descriptor instead.
 func (*RecoverBatchResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{22}
+	return file_holo_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *RecoverBatchResponse) GetResponses() []*RecoverResponse {
@@ -1490,7 +1734,7 @@ type FetchCommandRequest struct {
 
 func (x *FetchCommandRequest) Reset() {
 	*x = FetchCommandRequest{}
-	mi := &file_holo_proto_msgTypes[23]
+	mi := &file_holo_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1502,7 +1746,7 @@ func (x *FetchCommandRequest) String() string {
 func (*FetchCommandRequest) ProtoMessage() {}
 
 func (x *FetchCommandRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[23]
+	mi := &file_holo_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1515,7 +1759,7 @@ func (x *FetchCommandRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FetchCommandRequest.ProtoReflect.Descriptor instead.
 func (*FetchCommandRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{23}
+	return file_holo_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *FetchCommandRequest) GetGroupId() uint64 {
@@ -1542,7 +1786,7 @@ type FetchCommandResponse struct {
 
 func (x *FetchCommandResponse) Reset() {
 	*x = FetchCommandResponse{}
-	mi := &file_holo_proto_msgTypes[24]
+	mi := &file_holo_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1554,7 +1798,7 @@ func (x *FetchCommandResponse) String() string {
 func (*FetchCommandResponse) ProtoMessage() {}
 
 func (x *FetchCommandResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[24]
+	mi := &file_holo_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1567,7 +1811,7 @@ func (x *FetchCommandResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FetchCommandResponse.ProtoReflect.Descriptor instead.
 func (*FetchCommandResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{24}
+	return file_holo_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *FetchCommandResponse) GetHasCommand() bool {
@@ -1594,7 +1838,7 @@ type ExecutedPrefix struct {
 
 func (x *ExecutedPrefix) Reset() {
 	*x = ExecutedPrefix{}
-	mi := &file_holo_proto_msgTypes[25]
+	mi := &file_holo_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1606,7 +1850,7 @@ func (x *ExecutedPrefix) String() string {
 func (*ExecutedPrefix) ProtoMessage() {}
 
 func (x *ExecutedPrefix) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[25]
+	mi := &file_holo_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1619,7 +1863,7 @@ func (x *ExecutedPrefix) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExecutedPrefix.ProtoReflect.Descriptor instead.
 func (*ExecutedPrefix) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{25}
+	return file_holo_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *ExecutedPrefix) GetNodeId() uint64 {
@@ -1647,7 +1891,7 @@ type ReportExecutedRequest struct {
 
 func (x *ReportExecutedRequest) Reset() {
 	*x = ReportExecutedRequest{}
-	mi := &file_holo_proto_msgTypes[26]
+	mi := &file_holo_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1659,7 +1903,7 @@ func (x *ReportExecutedRequest) String() string {
 func (*ReportExecutedRequest) ProtoMessage() {}
 
 func (x *ReportExecutedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[26]
+	mi := &file_holo_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1672,7 +1916,7 @@ func (x *ReportExecutedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReportExecutedRequest.ProtoReflect.Descriptor instead.
 func (*ReportExecutedRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{26}
+	return file_holo_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *ReportExecutedRequest) GetGroupId() uint64 {
@@ -1705,7 +1949,7 @@ type ReportExecutedResponse struct {
 
 func (x *ReportExecutedResponse) Reset() {
 	*x = ReportExecutedResponse{}
-	mi := &file_holo_proto_msgTypes[27]
+	mi := &file_holo_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1717,7 +1961,7 @@ func (x *ReportExecutedResponse) String() string {
 func (*ReportExecutedResponse) ProtoMessage() {}
 
 func (x *ReportExecutedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[27]
+	mi := &file_holo_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1730,7 +1974,7 @@ func (x *ReportExecutedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReportExecutedResponse.ProtoReflect.Descriptor instead.
 func (*ReportExecutedResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{27}
+	return file_holo_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *ReportExecutedResponse) GetOk() bool {
@@ -1750,7 +1994,7 @@ type LastCommittedRequest struct {
 
 func (x *LastCommittedRequest) Reset() {
 	*x = LastCommittedRequest{}
-	mi := &file_holo_proto_msgTypes[28]
+	mi := &file_holo_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1762,7 +2006,7 @@ func (x *LastCommittedRequest) String() string {
 func (*LastCommittedRequest) ProtoMessage() {}
 
 func (x *LastCommittedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[28]
+	mi := &file_holo_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1775,7 +2019,7 @@ func (x *LastCommittedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LastCommittedRequest.ProtoReflect.Descriptor instead.
 func (*LastCommittedRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{28}
+	return file_holo_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *LastCommittedRequest) GetGroupId() uint64 {
@@ -1804,7 +2048,7 @@ type LastCommittedItem struct {
 
 func (x *LastCommittedItem) Reset() {
 	*x = LastCommittedItem{}
-	mi := &file_holo_proto_msgTypes[29]
+	mi := &file_holo_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1816,7 +2060,7 @@ func (x *LastCommittedItem) String() string {
 func (*LastCommittedItem) ProtoMessage() {}
 
 func (x *LastCommittedItem) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[29]
+	mi := &file_holo_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1829,7 +2073,7 @@ func (x *LastCommittedItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LastCommittedItem.ProtoReflect.Descriptor instead.
 func (*LastCommittedItem) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{29}
+	return file_holo_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *LastCommittedItem) GetKey() []byte {
@@ -1869,7 +2113,7 @@ type LastCommittedResponse struct {
 
 func (x *LastCommittedResponse) Reset() {
 	*x = LastCommittedResponse{}
-	mi := &file_holo_proto_msgTypes[30]
+	mi := &file_holo_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1881,7 +2125,7 @@ func (x *LastCommittedResponse) String() string {
 func (*LastCommittedResponse) ProtoMessage() {}
 
 func (x *LastCommittedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[30]
+	mi := &file_holo_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1894,7 +2138,7 @@ func (x *LastCommittedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LastCommittedResponse.ProtoReflect.Descriptor instead.
 func (*LastCommittedResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{30}
+	return file_holo_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *LastCommittedResponse) GetItems() []*LastCommittedItem {
@@ -1913,7 +2157,7 @@ type LastExecutedPrefixRequest struct {
 
 func (x *LastExecutedPrefixRequest) Reset() {
 	*x = LastExecutedPrefixRequest{}
-	mi := &file_holo_proto_msgTypes[31]
+	mi := &file_holo_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1925,7 +2169,7 @@ func (x *LastExecutedPrefixRequest) String() string {
 func (*LastExecutedPrefixRequest) ProtoMessage() {}
 
 func (x *LastExecutedPrefixRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[31]
+	mi := &file_holo_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1938,7 +2182,7 @@ func (x *LastExecutedPrefixRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LastExecutedPrefixRequest.ProtoReflect.Descriptor instead.
 func (*LastExecutedPrefixRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{31}
+	return file_holo_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *LastExecutedPrefixRequest) GetGroupId() uint64 {
@@ -1957,7 +2201,7 @@ type LastExecutedPrefixResponse struct {
 
 func (x *LastExecutedPrefixResponse) Reset() {
 	*x = LastExecutedPrefixResponse{}
-	mi := &file_holo_proto_msgTypes[32]
+	mi := &file_holo_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1969,7 +2213,7 @@ func (x *LastExecutedPrefixResponse) String() string {
 func (*LastExecutedPrefixResponse) ProtoMessage() {}
 
 func (x *LastExecutedPrefixResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[32]
+	mi := &file_holo_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1982,7 +2226,7 @@ func (x *LastExecutedPrefixResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LastExecutedPrefixResponse.ProtoReflect.Descriptor instead.
 func (*LastExecutedPrefixResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{32}
+	return file_holo_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *LastExecutedPrefixResponse) GetPrefixes() []*ExecutedPrefix {
@@ -2002,7 +2246,7 @@ type SeedExecutedPrefixRequest struct {
 
 func (x *SeedExecutedPrefixRequest) Reset() {
 	*x = SeedExecutedPrefixRequest{}
-	mi := &file_holo_proto_msgTypes[33]
+	mi := &file_holo_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2014,7 +2258,7 @@ func (x *SeedExecutedPrefixRequest) String() string {
 func (*SeedExecutedPrefixRequest) ProtoMessage() {}
 
 func (x *SeedExecutedPrefixRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[33]
+	mi := &file_holo_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2027,7 +2271,7 @@ func (x *SeedExecutedPrefixRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SeedExecutedPrefixRequest.ProtoReflect.Descriptor instead.
 func (*SeedExecutedPrefixRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{33}
+	return file_holo_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *SeedExecutedPrefixRequest) GetGroupId() uint64 {
@@ -2053,7 +2297,7 @@ type SeedExecutedPrefixResponse struct {
 
 func (x *SeedExecutedPrefixResponse) Reset() {
 	*x = SeedExecutedPrefixResponse{}
-	mi := &file_holo_proto_msgTypes[34]
+	mi := &file_holo_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2065,7 +2309,7 @@ func (x *SeedExecutedPrefixResponse) String() string {
 func (*SeedExecutedPrefixResponse) ProtoMessage() {}
 
 func (x *SeedExecutedPrefixResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[34]
+	mi := &file_holo_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2078,7 +2322,7 @@ func (x *SeedExecutedPrefixResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SeedExecutedPrefixResponse.ProtoReflect.Descriptor instead.
 func (*SeedExecutedPrefixResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{34}
+	return file_holo_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *SeedExecutedPrefixResponse) GetOk() bool {
@@ -2098,7 +2342,7 @@ type ExecutedRequest struct {
 
 func (x *ExecutedRequest) Reset() {
 	*x = ExecutedRequest{}
-	mi := &file_holo_proto_msgTypes[35]
+	mi := &file_holo_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2110,7 +2354,7 @@ func (x *ExecutedRequest) String() string {
 func (*ExecutedRequest) ProtoMessage() {}
 
 func (x *ExecutedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[35]
+	mi := &file_holo_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2123,7 +2367,7 @@ func (x *ExecutedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExecutedRequest.ProtoReflect.Descriptor instead.
 func (*ExecutedRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{35}
+	return file_holo_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *ExecutedRequest) GetGroupId() uint64 {
@@ -2149,7 +2393,7 @@ type ExecutedResponse struct {
 
 func (x *ExecutedResponse) Reset() {
 	*x = ExecutedResponse{}
-	mi := &file_holo_proto_msgTypes[36]
+	mi := &file_holo_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2161,7 +2405,7 @@ func (x *ExecutedResponse) String() string {
 func (*ExecutedResponse) ProtoMessage() {}
 
 func (x *ExecutedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[36]
+	mi := &file_holo_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2174,7 +2418,7 @@ func (x *ExecutedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExecutedResponse.ProtoReflect.Descriptor instead.
 func (*ExecutedResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{36}
+	return file_holo_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *ExecutedResponse) GetExecuted() bool {
@@ -2194,7 +2438,7 @@ type MarkVisibleRequest struct {
 
 func (x *MarkVisibleRequest) Reset() {
 	*x = MarkVisibleRequest{}
-	mi := &file_holo_proto_msgTypes[37]
+	mi := &file_holo_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2206,7 +2450,7 @@ func (x *MarkVisibleRequest) String() string {
 func (*MarkVisibleRequest) ProtoMessage() {}
 
 func (x *MarkVisibleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[37]
+	mi := &file_holo_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2219,7 +2463,7 @@ func (x *MarkVisibleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MarkVisibleRequest.ProtoReflect.Descriptor instead.
 func (*MarkVisibleRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{37}
+	return file_holo_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *MarkVisibleRequest) GetGroupId() uint64 {
@@ -2245,7 +2489,7 @@ type MarkVisibleResponse struct {
 
 func (x *MarkVisibleResponse) Reset() {
 	*x = MarkVisibleResponse{}
-	mi := &file_holo_proto_msgTypes[38]
+	mi := &file_holo_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2257,7 +2501,7 @@ func (x *MarkVisibleResponse) String() string {
 func (*MarkVisibleResponse) ProtoMessage() {}
 
 func (x *MarkVisibleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[38]
+	mi := &file_holo_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2270,7 +2514,7 @@ func (x *MarkVisibleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MarkVisibleResponse.ProtoReflect.Descriptor instead.
 func (*MarkVisibleResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{38}
+	return file_holo_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *MarkVisibleResponse) GetOk() bool {
@@ -2291,7 +2535,7 @@ type JoinRequest struct {
 
 func (x *JoinRequest) Reset() {
 	*x = JoinRequest{}
-	mi := &file_holo_proto_msgTypes[39]
+	mi := &file_holo_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2303,7 +2547,7 @@ func (x *JoinRequest) String() string {
 func (*JoinRequest) ProtoMessage() {}
 
 func (x *JoinRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[39]
+	mi := &file_holo_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2316,7 +2560,7 @@ func (x *JoinRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JoinRequest.ProtoReflect.Descriptor instead.
 func (*JoinRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{39}
+	return file_holo_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *JoinRequest) GetNodeId() uint64 {
@@ -2349,7 +2593,7 @@ type JoinResponse struct {
 
 func (x *JoinResponse) Reset() {
 	*x = JoinResponse{}
-	mi := &file_holo_proto_msgTypes[40]
+	mi := &file_holo_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2361,7 +2605,7 @@ func (x *JoinResponse) String() string {
 func (*JoinResponse) ProtoMessage() {}
 
 func (x *JoinResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[40]
+	mi := &file_holo_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2374,7 +2618,7 @@ func (x *JoinResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JoinResponse.ProtoReflect.Descriptor instead.
 func (*JoinResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{40}
+	return file_holo_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *JoinResponse) GetInitialMembers() string {
@@ -2392,7 +2636,7 @@ type ClusterStateRequest struct {
 
 func (x *ClusterStateRequest) Reset() {
 	*x = ClusterStateRequest{}
-	mi := &file_holo_proto_msgTypes[41]
+	mi := &file_holo_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2404,7 +2648,7 @@ func (x *ClusterStateRequest) String() string {
 func (*ClusterStateRequest) ProtoMessage() {}
 
 func (x *ClusterStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[41]
+	mi := &file_holo_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2417,7 +2661,7 @@ func (x *ClusterStateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterStateRequest.ProtoReflect.Descriptor instead.
 func (*ClusterStateRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{41}
+	return file_holo_proto_rawDescGZIP(), []int{46}
 }
 
 type ClusterStateResponse struct {
@@ -2429,7 +2673,7 @@ type ClusterStateResponse struct {
 
 func (x *ClusterStateResponse) Reset() {
 	*x = ClusterStateResponse{}
-	mi := &file_holo_proto_msgTypes[42]
+	mi := &file_holo_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2441,7 +2685,7 @@ func (x *ClusterStateResponse) String() string {
 func (*ClusterStateResponse) ProtoMessage() {}
 
 func (x *ClusterStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[42]
+	mi := &file_holo_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2454,7 +2698,7 @@ func (x *ClusterStateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterStateResponse.ProtoReflect.Descriptor instead.
 func (*ClusterStateResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{42}
+	return file_holo_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *ClusterStateResponse) GetJson() string {
@@ -2475,7 +2719,7 @@ type ClusterAddNodeRequest struct {
 
 func (x *ClusterAddNodeRequest) Reset() {
 	*x = ClusterAddNodeRequest{}
-	mi := &file_holo_proto_msgTypes[43]
+	mi := &file_holo_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2487,7 +2731,7 @@ func (x *ClusterAddNodeRequest) String() string {
 func (*ClusterAddNodeRequest) ProtoMessage() {}
 
 func (x *ClusterAddNodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[43]
+	mi := &file_holo_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2500,7 +2744,7 @@ func (x *ClusterAddNodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterAddNodeRequest.ProtoReflect.Descriptor instead.
 func (*ClusterAddNodeRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{43}
+	return file_holo_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *ClusterAddNodeRequest) GetNodeId() uint64 {
@@ -2533,7 +2777,7 @@ type ClusterAddNodeResponse struct {
 
 func (x *ClusterAddNodeResponse) Reset() {
 	*x = ClusterAddNodeResponse{}
-	mi := &file_holo_proto_msgTypes[44]
+	mi := &file_holo_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2545,7 +2789,7 @@ func (x *ClusterAddNodeResponse) String() string {
 func (*ClusterAddNodeResponse) ProtoMessage() {}
 
 func (x *ClusterAddNodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[44]
+	mi := &file_holo_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2558,7 +2802,7 @@ func (x *ClusterAddNodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterAddNodeResponse.ProtoReflect.Descriptor instead.
 func (*ClusterAddNodeResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{44}
+	return file_holo_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *ClusterAddNodeResponse) GetOk() bool {
@@ -2577,7 +2821,7 @@ type ClusterRemoveNodeRequest struct {
 
 func (x *ClusterRemoveNodeRequest) Reset() {
 	*x = ClusterRemoveNodeRequest{}
-	mi := &file_holo_proto_msgTypes[45]
+	mi := &file_holo_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2589,7 +2833,7 @@ func (x *ClusterRemoveNodeRequest) String() string {
 func (*ClusterRemoveNodeRequest) ProtoMessage() {}
 
 func (x *ClusterRemoveNodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[45]
+	mi := &file_holo_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2602,7 +2846,7 @@ func (x *ClusterRemoveNodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterRemoveNodeRequest.ProtoReflect.Descriptor instead.
 func (*ClusterRemoveNodeRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{45}
+	return file_holo_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *ClusterRemoveNodeRequest) GetNodeId() uint64 {
@@ -2621,7 +2865,7 @@ type ClusterRemoveNodeResponse struct {
 
 func (x *ClusterRemoveNodeResponse) Reset() {
 	*x = ClusterRemoveNodeResponse{}
-	mi := &file_holo_proto_msgTypes[46]
+	mi := &file_holo_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2633,7 +2877,7 @@ func (x *ClusterRemoveNodeResponse) String() string {
 func (*ClusterRemoveNodeResponse) ProtoMessage() {}
 
 func (x *ClusterRemoveNodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[46]
+	mi := &file_holo_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2646,7 +2890,7 @@ func (x *ClusterRemoveNodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterRemoveNodeResponse.ProtoReflect.Descriptor instead.
 func (*ClusterRemoveNodeResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{46}
+	return file_holo_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *ClusterRemoveNodeResponse) GetOk() bool {
@@ -2666,7 +2910,7 @@ type ClusterSplitMetaRangeRequest struct {
 
 func (x *ClusterSplitMetaRangeRequest) Reset() {
 	*x = ClusterSplitMetaRangeRequest{}
-	mi := &file_holo_proto_msgTypes[47]
+	mi := &file_holo_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2678,7 +2922,7 @@ func (x *ClusterSplitMetaRangeRequest) String() string {
 func (*ClusterSplitMetaRangeRequest) ProtoMessage() {}
 
 func (x *ClusterSplitMetaRangeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[47]
+	mi := &file_holo_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2691,7 +2935,7 @@ func (x *ClusterSplitMetaRangeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterSplitMetaRangeRequest.ProtoReflect.Descriptor instead.
 func (*ClusterSplitMetaRangeRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{47}
+	return file_holo_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *ClusterSplitMetaRangeRequest) GetSplitHash() uint64 {
@@ -2719,7 +2963,7 @@ type ClusterSplitMetaRangeResponse struct {
 
 func (x *ClusterSplitMetaRangeResponse) Reset() {
 	*x = ClusterSplitMetaRangeResponse{}
-	mi := &file_holo_proto_msgTypes[48]
+	mi := &file_holo_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2731,7 +2975,7 @@ func (x *ClusterSplitMetaRangeResponse) String() string {
 func (*ClusterSplitMetaRangeResponse) ProtoMessage() {}
 
 func (x *ClusterSplitMetaRangeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[48]
+	mi := &file_holo_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2744,7 +2988,7 @@ func (x *ClusterSplitMetaRangeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterSplitMetaRangeResponse.ProtoReflect.Descriptor instead.
 func (*ClusterSplitMetaRangeResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{48}
+	return file_holo_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *ClusterSplitMetaRangeResponse) GetOk() bool {
@@ -2779,7 +3023,7 @@ type ClusterMetaRebalanceRequest struct {
 
 func (x *ClusterMetaRebalanceRequest) Reset() {
 	*x = ClusterMetaRebalanceRequest{}
-	mi := &file_holo_proto_msgTypes[49]
+	mi := &file_holo_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2791,7 +3035,7 @@ func (x *ClusterMetaRebalanceRequest) String() string {
 func (*ClusterMetaRebalanceRequest) ProtoMessage() {}
 
 func (x *ClusterMetaRebalanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[49]
+	mi := &file_holo_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2804,7 +3048,7 @@ func (x *ClusterMetaRebalanceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterMetaRebalanceRequest.ProtoReflect.Descriptor instead.
 func (*ClusterMetaRebalanceRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{49}
+	return file_holo_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *ClusterMetaRebalanceRequest) GetMetaRangeId() uint64 {
@@ -2837,7 +3081,7 @@ type ClusterMetaRebalanceResponse struct {
 
 func (x *ClusterMetaRebalanceResponse) Reset() {
 	*x = ClusterMetaRebalanceResponse{}
-	mi := &file_holo_proto_msgTypes[50]
+	mi := &file_holo_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2849,7 +3093,7 @@ func (x *ClusterMetaRebalanceResponse) String() string {
 func (*ClusterMetaRebalanceResponse) ProtoMessage() {}
 
 func (x *ClusterMetaRebalanceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[50]
+	mi := &file_holo_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2862,7 +3106,7 @@ func (x *ClusterMetaRebalanceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterMetaRebalanceResponse.ProtoReflect.Descriptor instead.
 func (*ClusterMetaRebalanceResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{50}
+	return file_holo_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *ClusterMetaRebalanceResponse) GetOk() bool {
@@ -2881,7 +3125,7 @@ type RangeSplitRequest struct {
 
 func (x *RangeSplitRequest) Reset() {
 	*x = RangeSplitRequest{}
-	mi := &file_holo_proto_msgTypes[51]
+	mi := &file_holo_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2893,7 +3137,7 @@ func (x *RangeSplitRequest) String() string {
 func (*RangeSplitRequest) ProtoMessage() {}
 
 func (x *RangeSplitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[51]
+	mi := &file_holo_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2906,7 +3150,7 @@ func (x *RangeSplitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeSplitRequest.ProtoReflect.Descriptor instead.
 func (*RangeSplitRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{51}
+	return file_holo_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *RangeSplitRequest) GetSplitKey() []byte {
@@ -2927,7 +3171,7 @@ type RangeSplitResponse struct {
 
 func (x *RangeSplitResponse) Reset() {
 	*x = RangeSplitResponse{}
-	mi := &file_holo_proto_msgTypes[52]
+	mi := &file_holo_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2939,7 +3183,7 @@ func (x *RangeSplitResponse) String() string {
 func (*RangeSplitResponse) ProtoMessage() {}
 
 func (x *RangeSplitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[52]
+	mi := &file_holo_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2952,7 +3196,7 @@ func (x *RangeSplitResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeSplitResponse.ProtoReflect.Descriptor instead.
 func (*RangeSplitResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{52}
+	return file_holo_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *RangeSplitResponse) GetOk() bool {
@@ -2986,7 +3230,7 @@ type RangeMergeRequest struct {
 
 func (x *RangeMergeRequest) Reset() {
 	*x = RangeMergeRequest{}
-	mi := &file_holo_proto_msgTypes[53]
+	mi := &file_holo_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2998,7 +3242,7 @@ func (x *RangeMergeRequest) String() string {
 func (*RangeMergeRequest) ProtoMessage() {}
 
 func (x *RangeMergeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[53]
+	mi := &file_holo_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3011,7 +3255,7 @@ func (x *RangeMergeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeMergeRequest.ProtoReflect.Descriptor instead.
 func (*RangeMergeRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{53}
+	return file_holo_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *RangeMergeRequest) GetLeftShardId() uint64 {
@@ -3039,7 +3283,7 @@ type RangeMergeResponse struct {
 
 func (x *RangeMergeResponse) Reset() {
 	*x = RangeMergeResponse{}
-	mi := &file_holo_proto_msgTypes[54]
+	mi := &file_holo_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3051,7 +3295,7 @@ func (x *RangeMergeResponse) String() string {
 func (*RangeMergeResponse) ProtoMessage() {}
 
 func (x *RangeMergeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[54]
+	mi := &file_holo_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3064,7 +3308,7 @@ func (x *RangeMergeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeMergeResponse.ProtoReflect.Descriptor instead.
 func (*RangeMergeResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{54}
+	return file_holo_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *RangeMergeResponse) GetOk() bool {
@@ -3099,7 +3343,7 @@ type RangeRebalanceRequest struct {
 
 func (x *RangeRebalanceRequest) Reset() {
 	*x = RangeRebalanceRequest{}
-	mi := &file_holo_proto_msgTypes[55]
+	mi := &file_holo_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3111,7 +3355,7 @@ func (x *RangeRebalanceRequest) String() string {
 func (*RangeRebalanceRequest) ProtoMessage() {}
 
 func (x *RangeRebalanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[55]
+	mi := &file_holo_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3124,7 +3368,7 @@ func (x *RangeRebalanceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeRebalanceRequest.ProtoReflect.Descriptor instead.
 func (*RangeRebalanceRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{55}
+	return file_holo_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *RangeRebalanceRequest) GetShardId() uint64 {
@@ -3157,7 +3401,7 @@ type RangeRebalanceResponse struct {
 
 func (x *RangeRebalanceResponse) Reset() {
 	*x = RangeRebalanceResponse{}
-	mi := &file_holo_proto_msgTypes[56]
+	mi := &file_holo_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3169,7 +3413,7 @@ func (x *RangeRebalanceResponse) String() string {
 func (*RangeRebalanceResponse) ProtoMessage() {}
 
 func (x *RangeRebalanceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[56]
+	mi := &file_holo_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3182,7 +3426,7 @@ func (x *RangeRebalanceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeRebalanceResponse.ProtoReflect.Descriptor instead.
 func (*RangeRebalanceResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{56}
+	return file_holo_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *RangeRebalanceResponse) GetOk() bool {
@@ -3200,7 +3444,7 @@ type RangeStatsRequest struct {
 
 func (x *RangeStatsRequest) Reset() {
 	*x = RangeStatsRequest{}
-	mi := &file_holo_proto_msgTypes[57]
+	mi := &file_holo_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3212,7 +3456,7 @@ func (x *RangeStatsRequest) String() string {
 func (*RangeStatsRequest) ProtoMessage() {}
 
 func (x *RangeStatsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[57]
+	mi := &file_holo_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3225,7 +3469,7 @@ func (x *RangeStatsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeStatsRequest.ProtoReflect.Descriptor instead.
 func (*RangeStatsRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{57}
+	return file_holo_proto_rawDescGZIP(), []int{62}
 }
 
 type RangeStat struct {
@@ -3248,7 +3492,7 @@ type RangeStat struct {
 
 func (x *RangeStat) Reset() {
 	*x = RangeStat{}
-	mi := &file_holo_proto_msgTypes[58]
+	mi := &file_holo_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3260,7 +3504,7 @@ func (x *RangeStat) String() string {
 func (*RangeStat) ProtoMessage() {}
 
 func (x *RangeStat) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[58]
+	mi := &file_holo_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3273,7 +3517,7 @@ func (x *RangeStat) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeStat.ProtoReflect.Descriptor instead.
 func (*RangeStat) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{58}
+	return file_holo_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *RangeStat) GetShardId() uint64 {
@@ -3370,7 +3614,7 @@ type RangeStatsResponse struct {
 
 func (x *RangeStatsResponse) Reset() {
 	*x = RangeStatsResponse{}
-	mi := &file_holo_proto_msgTypes[59]
+	mi := &file_holo_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3382,7 +3626,7 @@ func (x *RangeStatsResponse) String() string {
 func (*RangeStatsResponse) ProtoMessage() {}
 
 func (x *RangeStatsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[59]
+	mi := &file_holo_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3395,7 +3639,7 @@ func (x *RangeStatsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeStatsResponse.ProtoReflect.Descriptor instead.
 func (*RangeStatsResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{59}
+	return file_holo_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *RangeStatsResponse) GetNodeId() uint64 {
@@ -3426,7 +3670,7 @@ type RangeSnapshotLatestRequest struct {
 
 func (x *RangeSnapshotLatestRequest) Reset() {
 	*x = RangeSnapshotLatestRequest{}
-	mi := &file_holo_proto_msgTypes[60]
+	mi := &file_holo_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3438,7 +3682,7 @@ func (x *RangeSnapshotLatestRequest) String() string {
 func (*RangeSnapshotLatestRequest) ProtoMessage() {}
 
 func (x *RangeSnapshotLatestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[60]
+	mi := &file_holo_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3451,7 +3695,7 @@ func (x *RangeSnapshotLatestRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeSnapshotLatestRequest.ProtoReflect.Descriptor instead.
 func (*RangeSnapshotLatestRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{60}
+	return file_holo_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *RangeSnapshotLatestRequest) GetShardIndex() uint64 {
@@ -3507,7 +3751,7 @@ type RangeSnapshotLatestEntry struct {
 
 func (x *RangeSnapshotLatestEntry) Reset() {
 	*x = RangeSnapshotLatestEntry{}
-	mi := &file_holo_proto_msgTypes[61]
+	mi := &file_holo_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3519,7 +3763,7 @@ func (x *RangeSnapshotLatestEntry) String() string {
 func (*RangeSnapshotLatestEntry) ProtoMessage() {}
 
 func (x *RangeSnapshotLatestEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[61]
+	mi := &file_holo_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3532,7 +3776,7 @@ func (x *RangeSnapshotLatestEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeSnapshotLatestEntry.ProtoReflect.Descriptor instead.
 func (*RangeSnapshotLatestEntry) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{61}
+	return file_holo_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *RangeSnapshotLatestEntry) GetKey() []byte {
@@ -3567,7 +3811,7 @@ type RangeSnapshotLatestResponse struct {
 
 func (x *RangeSnapshotLatestResponse) Reset() {
 	*x = RangeSnapshotLatestResponse{}
-	mi := &file_holo_proto_msgTypes[62]
+	mi := &file_holo_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3579,7 +3823,7 @@ func (x *RangeSnapshotLatestResponse) String() string {
 func (*RangeSnapshotLatestResponse) ProtoMessage() {}
 
 func (x *RangeSnapshotLatestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[62]
+	mi := &file_holo_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3592,7 +3836,7 @@ func (x *RangeSnapshotLatestResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeSnapshotLatestResponse.ProtoReflect.Descriptor instead.
 func (*RangeSnapshotLatestResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{62}
+	return file_holo_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *RangeSnapshotLatestResponse) GetEntries() []*RangeSnapshotLatestEntry {
@@ -3626,7 +3870,7 @@ type RangeWriteLatestEntry struct {
 
 func (x *RangeWriteLatestEntry) Reset() {
 	*x = RangeWriteLatestEntry{}
-	mi := &file_holo_proto_msgTypes[63]
+	mi := &file_holo_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3638,7 +3882,7 @@ func (x *RangeWriteLatestEntry) String() string {
 func (*RangeWriteLatestEntry) ProtoMessage() {}
 
 func (x *RangeWriteLatestEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[63]
+	mi := &file_holo_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3651,7 +3895,7 @@ func (x *RangeWriteLatestEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeWriteLatestEntry.ProtoReflect.Descriptor instead.
 func (*RangeWriteLatestEntry) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{63}
+	return file_holo_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *RangeWriteLatestEntry) GetKey() []byte {
@@ -3680,7 +3924,7 @@ type RangeWriteLatestRequest struct {
 
 func (x *RangeWriteLatestRequest) Reset() {
 	*x = RangeWriteLatestRequest{}
-	mi := &file_holo_proto_msgTypes[64]
+	mi := &file_holo_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3692,7 +3936,7 @@ func (x *RangeWriteLatestRequest) String() string {
 func (*RangeWriteLatestRequest) ProtoMessage() {}
 
 func (x *RangeWriteLatestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[64]
+	mi := &file_holo_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3705,7 +3949,7 @@ func (x *RangeWriteLatestRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeWriteLatestRequest.ProtoReflect.Descriptor instead.
 func (*RangeWriteLatestRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{64}
+	return file_holo_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *RangeWriteLatestRequest) GetShardIndex() uint64 {
@@ -3745,7 +3989,7 @@ type RangeWriteLatestResponse struct {
 
 func (x *RangeWriteLatestResponse) Reset() {
 	*x = RangeWriteLatestResponse{}
-	mi := &file_holo_proto_msgTypes[65]
+	mi := &file_holo_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3757,7 +4001,7 @@ func (x *RangeWriteLatestResponse) String() string {
 func (*RangeWriteLatestResponse) ProtoMessage() {}
 
 func (x *RangeWriteLatestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[65]
+	mi := &file_holo_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3770,7 +4014,7 @@ func (x *RangeWriteLatestResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeWriteLatestResponse.ProtoReflect.Descriptor instead.
 func (*RangeWriteLatestResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{65}
+	return file_holo_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *RangeWriteLatestResponse) GetApplied() uint64 {
@@ -3791,7 +4035,7 @@ type RangeWriteLatestConditionalEntry struct {
 
 func (x *RangeWriteLatestConditionalEntry) Reset() {
 	*x = RangeWriteLatestConditionalEntry{}
-	mi := &file_holo_proto_msgTypes[66]
+	mi := &file_holo_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3803,7 +4047,7 @@ func (x *RangeWriteLatestConditionalEntry) String() string {
 func (*RangeWriteLatestConditionalEntry) ProtoMessage() {}
 
 func (x *RangeWriteLatestConditionalEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[66]
+	mi := &file_holo_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3816,7 +4060,7 @@ func (x *RangeWriteLatestConditionalEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeWriteLatestConditionalEntry.ProtoReflect.Descriptor instead.
 func (*RangeWriteLatestConditionalEntry) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{66}
+	return file_holo_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *RangeWriteLatestConditionalEntry) GetKey() []byte {
@@ -3850,7 +4094,7 @@ type RangeWriteLatestConditionalAppliedVersion struct {
 
 func (x *RangeWriteLatestConditionalAppliedVersion) Reset() {
 	*x = RangeWriteLatestConditionalAppliedVersion{}
-	mi := &file_holo_proto_msgTypes[67]
+	mi := &file_holo_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3862,7 +4106,7 @@ func (x *RangeWriteLatestConditionalAppliedVersion) String() string {
 func (*RangeWriteLatestConditionalAppliedVersion) ProtoMessage() {}
 
 func (x *RangeWriteLatestConditionalAppliedVersion) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[67]
+	mi := &file_holo_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3875,7 +4119,7 @@ func (x *RangeWriteLatestConditionalAppliedVersion) ProtoReflect() protoreflect.
 
 // Deprecated: Use RangeWriteLatestConditionalAppliedVersion.ProtoReflect.Descriptor instead.
 func (*RangeWriteLatestConditionalAppliedVersion) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{67}
+	return file_holo_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *RangeWriteLatestConditionalAppliedVersion) GetKey() []byte {
@@ -3904,7 +4148,7 @@ type RangeWriteLatestConditionalRequest struct {
 
 func (x *RangeWriteLatestConditionalRequest) Reset() {
 	*x = RangeWriteLatestConditionalRequest{}
-	mi := &file_holo_proto_msgTypes[68]
+	mi := &file_holo_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3916,7 +4160,7 @@ func (x *RangeWriteLatestConditionalRequest) String() string {
 func (*RangeWriteLatestConditionalRequest) ProtoMessage() {}
 
 func (x *RangeWriteLatestConditionalRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[68]
+	mi := &file_holo_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3929,7 +4173,7 @@ func (x *RangeWriteLatestConditionalRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use RangeWriteLatestConditionalRequest.ProtoReflect.Descriptor instead.
 func (*RangeWriteLatestConditionalRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{68}
+	return file_holo_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *RangeWriteLatestConditionalRequest) GetShardIndex() uint64 {
@@ -3971,7 +4215,7 @@ type RangeWriteLatestConditionalResponse struct {
 
 func (x *RangeWriteLatestConditionalResponse) Reset() {
 	*x = RangeWriteLatestConditionalResponse{}
-	mi := &file_holo_proto_msgTypes[69]
+	mi := &file_holo_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3983,7 +4227,7 @@ func (x *RangeWriteLatestConditionalResponse) String() string {
 func (*RangeWriteLatestConditionalResponse) ProtoMessage() {}
 
 func (x *RangeWriteLatestConditionalResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[69]
+	mi := &file_holo_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3996,7 +4240,7 @@ func (x *RangeWriteLatestConditionalResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use RangeWriteLatestConditionalResponse.ProtoReflect.Descriptor instead.
 func (*RangeWriteLatestConditionalResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{69}
+	return file_holo_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *RangeWriteLatestConditionalResponse) GetApplied() uint64 {
@@ -4033,7 +4277,7 @@ type RangeApplyLatestRequest struct {
 
 func (x *RangeApplyLatestRequest) Reset() {
 	*x = RangeApplyLatestRequest{}
-	mi := &file_holo_proto_msgTypes[70]
+	mi := &file_holo_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4045,7 +4289,7 @@ func (x *RangeApplyLatestRequest) String() string {
 func (*RangeApplyLatestRequest) ProtoMessage() {}
 
 func (x *RangeApplyLatestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[70]
+	mi := &file_holo_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4058,7 +4302,7 @@ func (x *RangeApplyLatestRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeApplyLatestRequest.ProtoReflect.Descriptor instead.
 func (*RangeApplyLatestRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{70}
+	return file_holo_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *RangeApplyLatestRequest) GetShardIndex() uint64 {
@@ -4105,7 +4349,7 @@ type RangeApplyLatestResponse struct {
 
 func (x *RangeApplyLatestResponse) Reset() {
 	*x = RangeApplyLatestResponse{}
-	mi := &file_holo_proto_msgTypes[71]
+	mi := &file_holo_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4117,7 +4361,7 @@ func (x *RangeApplyLatestResponse) String() string {
 func (*RangeApplyLatestResponse) ProtoMessage() {}
 
 func (x *RangeApplyLatestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[71]
+	mi := &file_holo_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4130,7 +4374,7 @@ func (x *RangeApplyLatestResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeApplyLatestResponse.ProtoReflect.Descriptor instead.
 func (*RangeApplyLatestResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{71}
+	return file_holo_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *RangeApplyLatestResponse) GetApplied() uint64 {
@@ -4152,7 +4396,7 @@ type RangeApplyLatestConditionalEntry struct {
 
 func (x *RangeApplyLatestConditionalEntry) Reset() {
 	*x = RangeApplyLatestConditionalEntry{}
-	mi := &file_holo_proto_msgTypes[72]
+	mi := &file_holo_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4164,7 +4408,7 @@ func (x *RangeApplyLatestConditionalEntry) String() string {
 func (*RangeApplyLatestConditionalEntry) ProtoMessage() {}
 
 func (x *RangeApplyLatestConditionalEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[72]
+	mi := &file_holo_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4177,7 +4421,7 @@ func (x *RangeApplyLatestConditionalEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RangeApplyLatestConditionalEntry.ProtoReflect.Descriptor instead.
 func (*RangeApplyLatestConditionalEntry) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{72}
+	return file_holo_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *RangeApplyLatestConditionalEntry) GetKey() []byte {
@@ -4221,7 +4465,7 @@ type RangeApplyLatestConditionalRequest struct {
 
 func (x *RangeApplyLatestConditionalRequest) Reset() {
 	*x = RangeApplyLatestConditionalRequest{}
-	mi := &file_holo_proto_msgTypes[73]
+	mi := &file_holo_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4233,7 +4477,7 @@ func (x *RangeApplyLatestConditionalRequest) String() string {
 func (*RangeApplyLatestConditionalRequest) ProtoMessage() {}
 
 func (x *RangeApplyLatestConditionalRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[73]
+	mi := &file_holo_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4246,7 +4490,7 @@ func (x *RangeApplyLatestConditionalRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use RangeApplyLatestConditionalRequest.ProtoReflect.Descriptor instead.
 func (*RangeApplyLatestConditionalRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{73}
+	return file_holo_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *RangeApplyLatestConditionalRequest) GetShardIndex() uint64 {
@@ -4294,7 +4538,7 @@ type RangeApplyLatestConditionalResponse struct {
 
 func (x *RangeApplyLatestConditionalResponse) Reset() {
 	*x = RangeApplyLatestConditionalResponse{}
-	mi := &file_holo_proto_msgTypes[74]
+	mi := &file_holo_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4306,7 +4550,7 @@ func (x *RangeApplyLatestConditionalResponse) String() string {
 func (*RangeApplyLatestConditionalResponse) ProtoMessage() {}
 
 func (x *RangeApplyLatestConditionalResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[74]
+	mi := &file_holo_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4319,7 +4563,7 @@ func (x *RangeApplyLatestConditionalResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use RangeApplyLatestConditionalResponse.ProtoReflect.Descriptor instead.
 func (*RangeApplyLatestConditionalResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{74}
+	return file_holo_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *RangeApplyLatestConditionalResponse) GetApplied() uint64 {
@@ -4345,7 +4589,7 @@ type ClusterFreezeRequest struct {
 
 func (x *ClusterFreezeRequest) Reset() {
 	*x = ClusterFreezeRequest{}
-	mi := &file_holo_proto_msgTypes[75]
+	mi := &file_holo_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4357,7 +4601,7 @@ func (x *ClusterFreezeRequest) String() string {
 func (*ClusterFreezeRequest) ProtoMessage() {}
 
 func (x *ClusterFreezeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[75]
+	mi := &file_holo_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4370,7 +4614,7 @@ func (x *ClusterFreezeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterFreezeRequest.ProtoReflect.Descriptor instead.
 func (*ClusterFreezeRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{75}
+	return file_holo_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *ClusterFreezeRequest) GetFrozen() bool {
@@ -4389,7 +4633,7 @@ type ClusterFreezeResponse struct {
 
 func (x *ClusterFreezeResponse) Reset() {
 	*x = ClusterFreezeResponse{}
-	mi := &file_holo_proto_msgTypes[76]
+	mi := &file_holo_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4401,7 +4645,7 @@ func (x *ClusterFreezeResponse) String() string {
 func (*ClusterFreezeResponse) ProtoMessage() {}
 
 func (x *ClusterFreezeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[76]
+	mi := &file_holo_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4414,7 +4658,7 @@ func (x *ClusterFreezeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterFreezeResponse.ProtoReflect.Descriptor instead.
 func (*ClusterFreezeResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{76}
+	return file_holo_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *ClusterFreezeResponse) GetOk() bool {
@@ -4433,7 +4677,7 @@ type ClusterCheckpointControlRequest struct {
 
 func (x *ClusterCheckpointControlRequest) Reset() {
 	*x = ClusterCheckpointControlRequest{}
-	mi := &file_holo_proto_msgTypes[77]
+	mi := &file_holo_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4445,7 +4689,7 @@ func (x *ClusterCheckpointControlRequest) String() string {
 func (*ClusterCheckpointControlRequest) ProtoMessage() {}
 
 func (x *ClusterCheckpointControlRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[77]
+	mi := &file_holo_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4458,7 +4702,7 @@ func (x *ClusterCheckpointControlRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterCheckpointControlRequest.ProtoReflect.Descriptor instead.
 func (*ClusterCheckpointControlRequest) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{77}
+	return file_holo_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *ClusterCheckpointControlRequest) GetAction() ClusterCheckpointAction {
@@ -4493,7 +4737,7 @@ type ClusterCheckpointControlResponse struct {
 
 func (x *ClusterCheckpointControlResponse) Reset() {
 	*x = ClusterCheckpointControlResponse{}
-	mi := &file_holo_proto_msgTypes[78]
+	mi := &file_holo_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4505,7 +4749,7 @@ func (x *ClusterCheckpointControlResponse) String() string {
 func (*ClusterCheckpointControlResponse) ProtoMessage() {}
 
 func (x *ClusterCheckpointControlResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_holo_proto_msgTypes[78]
+	mi := &file_holo_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4518,7 +4762,7 @@ func (x *ClusterCheckpointControlResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterCheckpointControlResponse.ProtoReflect.Descriptor instead.
 func (*ClusterCheckpointControlResponse) Descriptor() ([]byte, []int) {
-	return file_holo_proto_rawDescGZIP(), []int{78}
+	return file_holo_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *ClusterCheckpointControlResponse) GetOk() bool {
@@ -4664,7 +4908,20 @@ const file_holo_proto_rawDesc = "" +
 	"\x11KvBatchGetRequest\x12\x12\n" +
 	"\x04keys\x18\x01 \x03(\fR\x04keys\"Q\n" +
 	"\x12KvBatchGetResponse\x12;\n" +
-	"\tresponses\x18\x01 \x03(\v2\x1d.holo_store.rpc.KvGetResponseR\tresponses\"\xe2\x01\n" +
+	"\tresponses\x18\x01 \x03(\v2\x1d.holo_store.rpc.KvGetResponseR\tresponses\"6\n" +
+	"\fKvSetRequest\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\fR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\fR\x05value\"\x1f\n" +
+	"\rKvSetResponse\x12\x0e\n" +
+	"\x02ok\x18\x01 \x01(\bR\x02ok\"1\n" +
+	"\aKvEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\fR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\fR\x05value\"F\n" +
+	"\x11KvBatchSetRequest\x121\n" +
+	"\aentries\x18\x01 \x03(\v2\x17.holo_store.rpc.KvEntryR\aentries\">\n" +
+	"\x12KvBatchSetResponse\x12\x0e\n" +
+	"\x02ok\x18\x01 \x01(\bR\x02ok\x12\x18\n" +
+	"\awritten\x18\x02 \x01(\x04R\awritten\"\xe2\x01\n" +
 	"\x10PreAcceptRequest\x12\x19\n" +
 	"\bgroup_id\x18\x01 \x01(\x04R\agroupId\x12,\n" +
 	"\x06txn_id\x18\x02 \x01(\v2\x15.holo_store.rpc.TxnIdR\x05txnId\x12\x18\n" +
@@ -4960,7 +5217,7 @@ const file_holo_proto_rawDesc = "" +
 	" CLUSTER_CHECKPOINT_ACTION_STATUS\x10\x00\x12#\n" +
 	"\x1fCLUSTER_CHECKPOINT_ACTION_PAUSE\x10\x01\x12$\n" +
 	" CLUSTER_CHECKPOINT_ACTION_RESUME\x10\x02\x12%\n" +
-	"!CLUSTER_CHECKPOINT_ACTION_TRIGGER\x10\x032\xba\x19\n" +
+	"!CLUSTER_CHECKPOINT_ACTION_TRIGGER\x10\x032\xd5\x1a\n" +
 	"\aHoloRpc\x12P\n" +
 	"\tPreAccept\x12 .holo_store.rpc.PreAcceptRequest\x1a!.holo_store.rpc.PreAcceptResponse\x12_\n" +
 	"\x0ePreAcceptBatch\x12%.holo_store.rpc.PreAcceptBatchRequest\x1a&.holo_store.rpc.PreAcceptBatchResponse\x12G\n" +
@@ -4979,7 +5236,10 @@ const file_holo_proto_rawDesc = "" +
 	"\vMarkVisible\x12\".holo_store.rpc.MarkVisibleRequest\x1a#.holo_store.rpc.MarkVisibleResponse\x12D\n" +
 	"\x05KvGet\x12\x1c.holo_store.rpc.KvGetRequest\x1a\x1d.holo_store.rpc.KvGetResponse\x12S\n" +
 	"\n" +
-	"KvBatchGet\x12!.holo_store.rpc.KvBatchGetRequest\x1a\".holo_store.rpc.KvBatchGetResponse\x12A\n" +
+	"KvBatchGet\x12!.holo_store.rpc.KvBatchGetRequest\x1a\".holo_store.rpc.KvBatchGetResponse\x12D\n" +
+	"\x05KvSet\x12\x1c.holo_store.rpc.KvSetRequest\x1a\x1d.holo_store.rpc.KvSetResponse\x12S\n" +
+	"\n" +
+	"KvBatchSet\x12!.holo_store.rpc.KvBatchSetRequest\x1a\".holo_store.rpc.KvBatchSetResponse\x12A\n" +
 	"\x04Join\x12\x1b.holo_store.rpc.JoinRequest\x1a\x1c.holo_store.rpc.JoinResponse\x12Y\n" +
 	"\fClusterState\x12#.holo_store.rpc.ClusterStateRequest\x1a$.holo_store.rpc.ClusterStateResponse\x12_\n" +
 	"\x0eClusterAddNode\x12%.holo_store.rpc.ClusterAddNodeRequest\x1a&.holo_store.rpc.ClusterAddNodeResponse\x12h\n" +
@@ -5014,7 +5274,7 @@ func file_holo_proto_rawDescGZIP() []byte {
 }
 
 var file_holo_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_holo_proto_msgTypes = make([]protoimpl.MessageInfo, 79)
+var file_holo_proto_msgTypes = make([]protoimpl.MessageInfo, 84)
 var file_holo_proto_goTypes = []any{
 	(TxnStatus)(0),                                    // 0: holo_store.rpc.TxnStatus
 	(RangeMergeAction)(0),                             // 1: holo_store.rpc.RangeMergeAction
@@ -5026,204 +5286,214 @@ var file_holo_proto_goTypes = []any{
 	(*KvGetResponse)(nil),                             // 7: holo_store.rpc.KvGetResponse
 	(*KvBatchGetRequest)(nil),                         // 8: holo_store.rpc.KvBatchGetRequest
 	(*KvBatchGetResponse)(nil),                        // 9: holo_store.rpc.KvBatchGetResponse
-	(*PreAcceptRequest)(nil),                          // 10: holo_store.rpc.PreAcceptRequest
-	(*PreAcceptResponse)(nil),                         // 11: holo_store.rpc.PreAcceptResponse
-	(*PreAcceptBatchRequest)(nil),                     // 12: holo_store.rpc.PreAcceptBatchRequest
-	(*PreAcceptBatchResponse)(nil),                    // 13: holo_store.rpc.PreAcceptBatchResponse
-	(*AcceptRequest)(nil),                             // 14: holo_store.rpc.AcceptRequest
-	(*AcceptResponse)(nil),                            // 15: holo_store.rpc.AcceptResponse
-	(*AcceptBatchRequest)(nil),                        // 16: holo_store.rpc.AcceptBatchRequest
-	(*AcceptBatchResponse)(nil),                       // 17: holo_store.rpc.AcceptBatchResponse
-	(*CommitRequest)(nil),                             // 18: holo_store.rpc.CommitRequest
-	(*CommitResponse)(nil),                            // 19: holo_store.rpc.CommitResponse
-	(*CommitBatchRequest)(nil),                        // 20: holo_store.rpc.CommitBatchRequest
-	(*CommitBatchResponse)(nil),                       // 21: holo_store.rpc.CommitBatchResponse
-	(*RecoverRequest)(nil),                            // 22: holo_store.rpc.RecoverRequest
-	(*RecoverResponse)(nil),                           // 23: holo_store.rpc.RecoverResponse
-	(*RecoverBatchRequest)(nil),                       // 24: holo_store.rpc.RecoverBatchRequest
-	(*RecoverBatchResponse)(nil),                      // 25: holo_store.rpc.RecoverBatchResponse
-	(*FetchCommandRequest)(nil),                       // 26: holo_store.rpc.FetchCommandRequest
-	(*FetchCommandResponse)(nil),                      // 27: holo_store.rpc.FetchCommandResponse
-	(*ExecutedPrefix)(nil),                            // 28: holo_store.rpc.ExecutedPrefix
-	(*ReportExecutedRequest)(nil),                     // 29: holo_store.rpc.ReportExecutedRequest
-	(*ReportExecutedResponse)(nil),                    // 30: holo_store.rpc.ReportExecutedResponse
-	(*LastCommittedRequest)(nil),                      // 31: holo_store.rpc.LastCommittedRequest
-	(*LastCommittedItem)(nil),                         // 32: holo_store.rpc.LastCommittedItem
-	(*LastCommittedResponse)(nil),                     // 33: holo_store.rpc.LastCommittedResponse
-	(*LastExecutedPrefixRequest)(nil),                 // 34: holo_store.rpc.LastExecutedPrefixRequest
-	(*LastExecutedPrefixResponse)(nil),                // 35: holo_store.rpc.LastExecutedPrefixResponse
-	(*SeedExecutedPrefixRequest)(nil),                 // 36: holo_store.rpc.SeedExecutedPrefixRequest
-	(*SeedExecutedPrefixResponse)(nil),                // 37: holo_store.rpc.SeedExecutedPrefixResponse
-	(*ExecutedRequest)(nil),                           // 38: holo_store.rpc.ExecutedRequest
-	(*ExecutedResponse)(nil),                          // 39: holo_store.rpc.ExecutedResponse
-	(*MarkVisibleRequest)(nil),                        // 40: holo_store.rpc.MarkVisibleRequest
-	(*MarkVisibleResponse)(nil),                       // 41: holo_store.rpc.MarkVisibleResponse
-	(*JoinRequest)(nil),                               // 42: holo_store.rpc.JoinRequest
-	(*JoinResponse)(nil),                              // 43: holo_store.rpc.JoinResponse
-	(*ClusterStateRequest)(nil),                       // 44: holo_store.rpc.ClusterStateRequest
-	(*ClusterStateResponse)(nil),                      // 45: holo_store.rpc.ClusterStateResponse
-	(*ClusterAddNodeRequest)(nil),                     // 46: holo_store.rpc.ClusterAddNodeRequest
-	(*ClusterAddNodeResponse)(nil),                    // 47: holo_store.rpc.ClusterAddNodeResponse
-	(*ClusterRemoveNodeRequest)(nil),                  // 48: holo_store.rpc.ClusterRemoveNodeRequest
-	(*ClusterRemoveNodeResponse)(nil),                 // 49: holo_store.rpc.ClusterRemoveNodeResponse
-	(*ClusterSplitMetaRangeRequest)(nil),              // 50: holo_store.rpc.ClusterSplitMetaRangeRequest
-	(*ClusterSplitMetaRangeResponse)(nil),             // 51: holo_store.rpc.ClusterSplitMetaRangeResponse
-	(*ClusterMetaRebalanceRequest)(nil),               // 52: holo_store.rpc.ClusterMetaRebalanceRequest
-	(*ClusterMetaRebalanceResponse)(nil),              // 53: holo_store.rpc.ClusterMetaRebalanceResponse
-	(*RangeSplitRequest)(nil),                         // 54: holo_store.rpc.RangeSplitRequest
-	(*RangeSplitResponse)(nil),                        // 55: holo_store.rpc.RangeSplitResponse
-	(*RangeMergeRequest)(nil),                         // 56: holo_store.rpc.RangeMergeRequest
-	(*RangeMergeResponse)(nil),                        // 57: holo_store.rpc.RangeMergeResponse
-	(*RangeRebalanceRequest)(nil),                     // 58: holo_store.rpc.RangeRebalanceRequest
-	(*RangeRebalanceResponse)(nil),                    // 59: holo_store.rpc.RangeRebalanceResponse
-	(*RangeStatsRequest)(nil),                         // 60: holo_store.rpc.RangeStatsRequest
-	(*RangeStat)(nil),                                 // 61: holo_store.rpc.RangeStat
-	(*RangeStatsResponse)(nil),                        // 62: holo_store.rpc.RangeStatsResponse
-	(*RangeSnapshotLatestRequest)(nil),                // 63: holo_store.rpc.RangeSnapshotLatestRequest
-	(*RangeSnapshotLatestEntry)(nil),                  // 64: holo_store.rpc.RangeSnapshotLatestEntry
-	(*RangeSnapshotLatestResponse)(nil),               // 65: holo_store.rpc.RangeSnapshotLatestResponse
-	(*RangeWriteLatestEntry)(nil),                     // 66: holo_store.rpc.RangeWriteLatestEntry
-	(*RangeWriteLatestRequest)(nil),                   // 67: holo_store.rpc.RangeWriteLatestRequest
-	(*RangeWriteLatestResponse)(nil),                  // 68: holo_store.rpc.RangeWriteLatestResponse
-	(*RangeWriteLatestConditionalEntry)(nil),          // 69: holo_store.rpc.RangeWriteLatestConditionalEntry
-	(*RangeWriteLatestConditionalAppliedVersion)(nil), // 70: holo_store.rpc.RangeWriteLatestConditionalAppliedVersion
-	(*RangeWriteLatestConditionalRequest)(nil),        // 71: holo_store.rpc.RangeWriteLatestConditionalRequest
-	(*RangeWriteLatestConditionalResponse)(nil),       // 72: holo_store.rpc.RangeWriteLatestConditionalResponse
-	(*RangeApplyLatestRequest)(nil),                   // 73: holo_store.rpc.RangeApplyLatestRequest
-	(*RangeApplyLatestResponse)(nil),                  // 74: holo_store.rpc.RangeApplyLatestResponse
-	(*RangeApplyLatestConditionalEntry)(nil),          // 75: holo_store.rpc.RangeApplyLatestConditionalEntry
-	(*RangeApplyLatestConditionalRequest)(nil),        // 76: holo_store.rpc.RangeApplyLatestConditionalRequest
-	(*RangeApplyLatestConditionalResponse)(nil),       // 77: holo_store.rpc.RangeApplyLatestConditionalResponse
-	(*ClusterFreezeRequest)(nil),                      // 78: holo_store.rpc.ClusterFreezeRequest
-	(*ClusterFreezeResponse)(nil),                     // 79: holo_store.rpc.ClusterFreezeResponse
-	(*ClusterCheckpointControlRequest)(nil),           // 80: holo_store.rpc.ClusterCheckpointControlRequest
-	(*ClusterCheckpointControlResponse)(nil),          // 81: holo_store.rpc.ClusterCheckpointControlResponse
+	(*KvSetRequest)(nil),                              // 10: holo_store.rpc.KvSetRequest
+	(*KvSetResponse)(nil),                             // 11: holo_store.rpc.KvSetResponse
+	(*KvEntry)(nil),                                   // 12: holo_store.rpc.KvEntry
+	(*KvBatchSetRequest)(nil),                         // 13: holo_store.rpc.KvBatchSetRequest
+	(*KvBatchSetResponse)(nil),                        // 14: holo_store.rpc.KvBatchSetResponse
+	(*PreAcceptRequest)(nil),                          // 15: holo_store.rpc.PreAcceptRequest
+	(*PreAcceptResponse)(nil),                         // 16: holo_store.rpc.PreAcceptResponse
+	(*PreAcceptBatchRequest)(nil),                     // 17: holo_store.rpc.PreAcceptBatchRequest
+	(*PreAcceptBatchResponse)(nil),                    // 18: holo_store.rpc.PreAcceptBatchResponse
+	(*AcceptRequest)(nil),                             // 19: holo_store.rpc.AcceptRequest
+	(*AcceptResponse)(nil),                            // 20: holo_store.rpc.AcceptResponse
+	(*AcceptBatchRequest)(nil),                        // 21: holo_store.rpc.AcceptBatchRequest
+	(*AcceptBatchResponse)(nil),                       // 22: holo_store.rpc.AcceptBatchResponse
+	(*CommitRequest)(nil),                             // 23: holo_store.rpc.CommitRequest
+	(*CommitResponse)(nil),                            // 24: holo_store.rpc.CommitResponse
+	(*CommitBatchRequest)(nil),                        // 25: holo_store.rpc.CommitBatchRequest
+	(*CommitBatchResponse)(nil),                       // 26: holo_store.rpc.CommitBatchResponse
+	(*RecoverRequest)(nil),                            // 27: holo_store.rpc.RecoverRequest
+	(*RecoverResponse)(nil),                           // 28: holo_store.rpc.RecoverResponse
+	(*RecoverBatchRequest)(nil),                       // 29: holo_store.rpc.RecoverBatchRequest
+	(*RecoverBatchResponse)(nil),                      // 30: holo_store.rpc.RecoverBatchResponse
+	(*FetchCommandRequest)(nil),                       // 31: holo_store.rpc.FetchCommandRequest
+	(*FetchCommandResponse)(nil),                      // 32: holo_store.rpc.FetchCommandResponse
+	(*ExecutedPrefix)(nil),                            // 33: holo_store.rpc.ExecutedPrefix
+	(*ReportExecutedRequest)(nil),                     // 34: holo_store.rpc.ReportExecutedRequest
+	(*ReportExecutedResponse)(nil),                    // 35: holo_store.rpc.ReportExecutedResponse
+	(*LastCommittedRequest)(nil),                      // 36: holo_store.rpc.LastCommittedRequest
+	(*LastCommittedItem)(nil),                         // 37: holo_store.rpc.LastCommittedItem
+	(*LastCommittedResponse)(nil),                     // 38: holo_store.rpc.LastCommittedResponse
+	(*LastExecutedPrefixRequest)(nil),                 // 39: holo_store.rpc.LastExecutedPrefixRequest
+	(*LastExecutedPrefixResponse)(nil),                // 40: holo_store.rpc.LastExecutedPrefixResponse
+	(*SeedExecutedPrefixRequest)(nil),                 // 41: holo_store.rpc.SeedExecutedPrefixRequest
+	(*SeedExecutedPrefixResponse)(nil),                // 42: holo_store.rpc.SeedExecutedPrefixResponse
+	(*ExecutedRequest)(nil),                           // 43: holo_store.rpc.ExecutedRequest
+	(*ExecutedResponse)(nil),                          // 44: holo_store.rpc.ExecutedResponse
+	(*MarkVisibleRequest)(nil),                        // 45: holo_store.rpc.MarkVisibleRequest
+	(*MarkVisibleResponse)(nil),                       // 46: holo_store.rpc.MarkVisibleResponse
+	(*JoinRequest)(nil),                               // 47: holo_store.rpc.JoinRequest
+	(*JoinResponse)(nil),                              // 48: holo_store.rpc.JoinResponse
+	(*ClusterStateRequest)(nil),                       // 49: holo_store.rpc.ClusterStateRequest
+	(*ClusterStateResponse)(nil),                      // 50: holo_store.rpc.ClusterStateResponse
+	(*ClusterAddNodeRequest)(nil),                     // 51: holo_store.rpc.ClusterAddNodeRequest
+	(*ClusterAddNodeResponse)(nil),                    // 52: holo_store.rpc.ClusterAddNodeResponse
+	(*ClusterRemoveNodeRequest)(nil),                  // 53: holo_store.rpc.ClusterRemoveNodeRequest
+	(*ClusterRemoveNodeResponse)(nil),                 // 54: holo_store.rpc.ClusterRemoveNodeResponse
+	(*ClusterSplitMetaRangeRequest)(nil),              // 55: holo_store.rpc.ClusterSplitMetaRangeRequest
+	(*ClusterSplitMetaRangeResponse)(nil),             // 56: holo_store.rpc.ClusterSplitMetaRangeResponse
+	(*ClusterMetaRebalanceRequest)(nil),               // 57: holo_store.rpc.ClusterMetaRebalanceRequest
+	(*ClusterMetaRebalanceResponse)(nil),              // 58: holo_store.rpc.ClusterMetaRebalanceResponse
+	(*RangeSplitRequest)(nil),                         // 59: holo_store.rpc.RangeSplitRequest
+	(*RangeSplitResponse)(nil),                        // 60: holo_store.rpc.RangeSplitResponse
+	(*RangeMergeRequest)(nil),                         // 61: holo_store.rpc.RangeMergeRequest
+	(*RangeMergeResponse)(nil),                        // 62: holo_store.rpc.RangeMergeResponse
+	(*RangeRebalanceRequest)(nil),                     // 63: holo_store.rpc.RangeRebalanceRequest
+	(*RangeRebalanceResponse)(nil),                    // 64: holo_store.rpc.RangeRebalanceResponse
+	(*RangeStatsRequest)(nil),                         // 65: holo_store.rpc.RangeStatsRequest
+	(*RangeStat)(nil),                                 // 66: holo_store.rpc.RangeStat
+	(*RangeStatsResponse)(nil),                        // 67: holo_store.rpc.RangeStatsResponse
+	(*RangeSnapshotLatestRequest)(nil),                // 68: holo_store.rpc.RangeSnapshotLatestRequest
+	(*RangeSnapshotLatestEntry)(nil),                  // 69: holo_store.rpc.RangeSnapshotLatestEntry
+	(*RangeSnapshotLatestResponse)(nil),               // 70: holo_store.rpc.RangeSnapshotLatestResponse
+	(*RangeWriteLatestEntry)(nil),                     // 71: holo_store.rpc.RangeWriteLatestEntry
+	(*RangeWriteLatestRequest)(nil),                   // 72: holo_store.rpc.RangeWriteLatestRequest
+	(*RangeWriteLatestResponse)(nil),                  // 73: holo_store.rpc.RangeWriteLatestResponse
+	(*RangeWriteLatestConditionalEntry)(nil),          // 74: holo_store.rpc.RangeWriteLatestConditionalEntry
+	(*RangeWriteLatestConditionalAppliedVersion)(nil), // 75: holo_store.rpc.RangeWriteLatestConditionalAppliedVersion
+	(*RangeWriteLatestConditionalRequest)(nil),        // 76: holo_store.rpc.RangeWriteLatestConditionalRequest
+	(*RangeWriteLatestConditionalResponse)(nil),       // 77: holo_store.rpc.RangeWriteLatestConditionalResponse
+	(*RangeApplyLatestRequest)(nil),                   // 78: holo_store.rpc.RangeApplyLatestRequest
+	(*RangeApplyLatestResponse)(nil),                  // 79: holo_store.rpc.RangeApplyLatestResponse
+	(*RangeApplyLatestConditionalEntry)(nil),          // 80: holo_store.rpc.RangeApplyLatestConditionalEntry
+	(*RangeApplyLatestConditionalRequest)(nil),        // 81: holo_store.rpc.RangeApplyLatestConditionalRequest
+	(*RangeApplyLatestConditionalResponse)(nil),       // 82: holo_store.rpc.RangeApplyLatestConditionalResponse
+	(*ClusterFreezeRequest)(nil),                      // 83: holo_store.rpc.ClusterFreezeRequest
+	(*ClusterFreezeResponse)(nil),                     // 84: holo_store.rpc.ClusterFreezeResponse
+	(*ClusterCheckpointControlRequest)(nil),           // 85: holo_store.rpc.ClusterCheckpointControlRequest
+	(*ClusterCheckpointControlResponse)(nil),          // 86: holo_store.rpc.ClusterCheckpointControlResponse
 }
 var file_holo_proto_depIdxs = []int32{
 	3,  // 0: holo_store.rpc.Version.txn_id:type_name -> holo_store.rpc.TxnId
 	5,  // 1: holo_store.rpc.KvGetResponse.version:type_name -> holo_store.rpc.Version
 	7,  // 2: holo_store.rpc.KvBatchGetResponse.responses:type_name -> holo_store.rpc.KvGetResponse
-	3,  // 3: holo_store.rpc.PreAcceptRequest.txn_id:type_name -> holo_store.rpc.TxnId
-	3,  // 4: holo_store.rpc.PreAcceptRequest.deps:type_name -> holo_store.rpc.TxnId
-	4,  // 5: holo_store.rpc.PreAcceptRequest.ballot:type_name -> holo_store.rpc.Ballot
-	3,  // 6: holo_store.rpc.PreAcceptResponse.deps:type_name -> holo_store.rpc.TxnId
-	4,  // 7: holo_store.rpc.PreAcceptResponse.promised:type_name -> holo_store.rpc.Ballot
-	10, // 8: holo_store.rpc.PreAcceptBatchRequest.requests:type_name -> holo_store.rpc.PreAcceptRequest
-	11, // 9: holo_store.rpc.PreAcceptBatchResponse.responses:type_name -> holo_store.rpc.PreAcceptResponse
-	3,  // 10: holo_store.rpc.AcceptRequest.txn_id:type_name -> holo_store.rpc.TxnId
-	3,  // 11: holo_store.rpc.AcceptRequest.deps:type_name -> holo_store.rpc.TxnId
-	4,  // 12: holo_store.rpc.AcceptRequest.ballot:type_name -> holo_store.rpc.Ballot
-	4,  // 13: holo_store.rpc.AcceptResponse.promised:type_name -> holo_store.rpc.Ballot
-	14, // 14: holo_store.rpc.AcceptBatchRequest.requests:type_name -> holo_store.rpc.AcceptRequest
-	15, // 15: holo_store.rpc.AcceptBatchResponse.responses:type_name -> holo_store.rpc.AcceptResponse
-	3,  // 16: holo_store.rpc.CommitRequest.txn_id:type_name -> holo_store.rpc.TxnId
-	3,  // 17: holo_store.rpc.CommitRequest.deps:type_name -> holo_store.rpc.TxnId
-	4,  // 18: holo_store.rpc.CommitRequest.ballot:type_name -> holo_store.rpc.Ballot
-	18, // 19: holo_store.rpc.CommitBatchRequest.requests:type_name -> holo_store.rpc.CommitRequest
-	19, // 20: holo_store.rpc.CommitBatchResponse.responses:type_name -> holo_store.rpc.CommitResponse
-	3,  // 21: holo_store.rpc.RecoverRequest.txn_id:type_name -> holo_store.rpc.TxnId
-	4,  // 22: holo_store.rpc.RecoverRequest.ballot:type_name -> holo_store.rpc.Ballot
-	4,  // 23: holo_store.rpc.RecoverResponse.promised:type_name -> holo_store.rpc.Ballot
-	0,  // 24: holo_store.rpc.RecoverResponse.status:type_name -> holo_store.rpc.TxnStatus
-	4,  // 25: holo_store.rpc.RecoverResponse.accepted_ballot:type_name -> holo_store.rpc.Ballot
-	3,  // 26: holo_store.rpc.RecoverResponse.deps:type_name -> holo_store.rpc.TxnId
-	22, // 27: holo_store.rpc.RecoverBatchRequest.requests:type_name -> holo_store.rpc.RecoverRequest
-	23, // 28: holo_store.rpc.RecoverBatchResponse.responses:type_name -> holo_store.rpc.RecoverResponse
-	3,  // 29: holo_store.rpc.FetchCommandRequest.txn_id:type_name -> holo_store.rpc.TxnId
-	28, // 30: holo_store.rpc.ReportExecutedRequest.prefixes:type_name -> holo_store.rpc.ExecutedPrefix
-	3,  // 31: holo_store.rpc.LastCommittedItem.txn_id:type_name -> holo_store.rpc.TxnId
-	32, // 32: holo_store.rpc.LastCommittedResponse.items:type_name -> holo_store.rpc.LastCommittedItem
-	28, // 33: holo_store.rpc.LastExecutedPrefixResponse.prefixes:type_name -> holo_store.rpc.ExecutedPrefix
-	28, // 34: holo_store.rpc.SeedExecutedPrefixRequest.prefixes:type_name -> holo_store.rpc.ExecutedPrefix
-	3,  // 35: holo_store.rpc.ExecutedRequest.txn_id:type_name -> holo_store.rpc.TxnId
-	3,  // 36: holo_store.rpc.MarkVisibleRequest.txn_id:type_name -> holo_store.rpc.TxnId
-	1,  // 37: holo_store.rpc.RangeMergeRequest.action:type_name -> holo_store.rpc.RangeMergeAction
-	61, // 38: holo_store.rpc.RangeStatsResponse.ranges:type_name -> holo_store.rpc.RangeStat
-	5,  // 39: holo_store.rpc.RangeSnapshotLatestEntry.version:type_name -> holo_store.rpc.Version
-	64, // 40: holo_store.rpc.RangeSnapshotLatestResponse.entries:type_name -> holo_store.rpc.RangeSnapshotLatestEntry
-	66, // 41: holo_store.rpc.RangeWriteLatestRequest.entries:type_name -> holo_store.rpc.RangeWriteLatestEntry
-	5,  // 42: holo_store.rpc.RangeWriteLatestConditionalEntry.expected_version:type_name -> holo_store.rpc.Version
-	5,  // 43: holo_store.rpc.RangeWriteLatestConditionalAppliedVersion.version:type_name -> holo_store.rpc.Version
-	69, // 44: holo_store.rpc.RangeWriteLatestConditionalRequest.entries:type_name -> holo_store.rpc.RangeWriteLatestConditionalEntry
-	70, // 45: holo_store.rpc.RangeWriteLatestConditionalResponse.applied_versions:type_name -> holo_store.rpc.RangeWriteLatestConditionalAppliedVersion
-	64, // 46: holo_store.rpc.RangeApplyLatestRequest.entries:type_name -> holo_store.rpc.RangeSnapshotLatestEntry
-	5,  // 47: holo_store.rpc.RangeApplyLatestConditionalEntry.version:type_name -> holo_store.rpc.Version
-	5,  // 48: holo_store.rpc.RangeApplyLatestConditionalEntry.expected_version:type_name -> holo_store.rpc.Version
-	75, // 49: holo_store.rpc.RangeApplyLatestConditionalRequest.entries:type_name -> holo_store.rpc.RangeApplyLatestConditionalEntry
-	2,  // 50: holo_store.rpc.ClusterCheckpointControlRequest.action:type_name -> holo_store.rpc.ClusterCheckpointAction
-	10, // 51: holo_store.rpc.HoloRpc.PreAccept:input_type -> holo_store.rpc.PreAcceptRequest
-	12, // 52: holo_store.rpc.HoloRpc.PreAcceptBatch:input_type -> holo_store.rpc.PreAcceptBatchRequest
-	14, // 53: holo_store.rpc.HoloRpc.Accept:input_type -> holo_store.rpc.AcceptRequest
-	16, // 54: holo_store.rpc.HoloRpc.AcceptBatch:input_type -> holo_store.rpc.AcceptBatchRequest
-	18, // 55: holo_store.rpc.HoloRpc.Commit:input_type -> holo_store.rpc.CommitRequest
-	20, // 56: holo_store.rpc.HoloRpc.CommitBatch:input_type -> holo_store.rpc.CommitBatchRequest
-	22, // 57: holo_store.rpc.HoloRpc.Recover:input_type -> holo_store.rpc.RecoverRequest
-	24, // 58: holo_store.rpc.HoloRpc.RecoverBatch:input_type -> holo_store.rpc.RecoverBatchRequest
-	26, // 59: holo_store.rpc.HoloRpc.FetchCommand:input_type -> holo_store.rpc.FetchCommandRequest
-	29, // 60: holo_store.rpc.HoloRpc.ReportExecuted:input_type -> holo_store.rpc.ReportExecutedRequest
-	31, // 61: holo_store.rpc.HoloRpc.LastCommitted:input_type -> holo_store.rpc.LastCommittedRequest
-	34, // 62: holo_store.rpc.HoloRpc.LastExecutedPrefix:input_type -> holo_store.rpc.LastExecutedPrefixRequest
-	36, // 63: holo_store.rpc.HoloRpc.SeedExecutedPrefix:input_type -> holo_store.rpc.SeedExecutedPrefixRequest
-	38, // 64: holo_store.rpc.HoloRpc.Executed:input_type -> holo_store.rpc.ExecutedRequest
-	40, // 65: holo_store.rpc.HoloRpc.MarkVisible:input_type -> holo_store.rpc.MarkVisibleRequest
-	6,  // 66: holo_store.rpc.HoloRpc.KvGet:input_type -> holo_store.rpc.KvGetRequest
-	8,  // 67: holo_store.rpc.HoloRpc.KvBatchGet:input_type -> holo_store.rpc.KvBatchGetRequest
-	42, // 68: holo_store.rpc.HoloRpc.Join:input_type -> holo_store.rpc.JoinRequest
-	44, // 69: holo_store.rpc.HoloRpc.ClusterState:input_type -> holo_store.rpc.ClusterStateRequest
-	46, // 70: holo_store.rpc.HoloRpc.ClusterAddNode:input_type -> holo_store.rpc.ClusterAddNodeRequest
-	48, // 71: holo_store.rpc.HoloRpc.ClusterRemoveNode:input_type -> holo_store.rpc.ClusterRemoveNodeRequest
-	50, // 72: holo_store.rpc.HoloRpc.ClusterSplitMetaRange:input_type -> holo_store.rpc.ClusterSplitMetaRangeRequest
-	52, // 73: holo_store.rpc.HoloRpc.ClusterMetaRebalance:input_type -> holo_store.rpc.ClusterMetaRebalanceRequest
-	54, // 74: holo_store.rpc.HoloRpc.RangeSplit:input_type -> holo_store.rpc.RangeSplitRequest
-	56, // 75: holo_store.rpc.HoloRpc.RangeMerge:input_type -> holo_store.rpc.RangeMergeRequest
-	58, // 76: holo_store.rpc.HoloRpc.RangeRebalance:input_type -> holo_store.rpc.RangeRebalanceRequest
-	60, // 77: holo_store.rpc.HoloRpc.RangeStats:input_type -> holo_store.rpc.RangeStatsRequest
-	63, // 78: holo_store.rpc.HoloRpc.RangeSnapshotLatest:input_type -> holo_store.rpc.RangeSnapshotLatestRequest
-	67, // 79: holo_store.rpc.HoloRpc.RangeWriteLatest:input_type -> holo_store.rpc.RangeWriteLatestRequest
-	71, // 80: holo_store.rpc.HoloRpc.RangeWriteLatestConditional:input_type -> holo_store.rpc.RangeWriteLatestConditionalRequest
-	73, // 81: holo_store.rpc.HoloRpc.RangeApplyLatest:input_type -> holo_store.rpc.RangeApplyLatestRequest
-	76, // 82: holo_store.rpc.HoloRpc.RangeApplyLatestConditional:input_type -> holo_store.rpc.RangeApplyLatestConditionalRequest
-	78, // 83: holo_store.rpc.HoloRpc.ClusterFreeze:input_type -> holo_store.rpc.ClusterFreezeRequest
-	80, // 84: holo_store.rpc.HoloRpc.ClusterCheckpointControl:input_type -> holo_store.rpc.ClusterCheckpointControlRequest
-	11, // 85: holo_store.rpc.HoloRpc.PreAccept:output_type -> holo_store.rpc.PreAcceptResponse
-	13, // 86: holo_store.rpc.HoloRpc.PreAcceptBatch:output_type -> holo_store.rpc.PreAcceptBatchResponse
-	15, // 87: holo_store.rpc.HoloRpc.Accept:output_type -> holo_store.rpc.AcceptResponse
-	17, // 88: holo_store.rpc.HoloRpc.AcceptBatch:output_type -> holo_store.rpc.AcceptBatchResponse
-	19, // 89: holo_store.rpc.HoloRpc.Commit:output_type -> holo_store.rpc.CommitResponse
-	21, // 90: holo_store.rpc.HoloRpc.CommitBatch:output_type -> holo_store.rpc.CommitBatchResponse
-	23, // 91: holo_store.rpc.HoloRpc.Recover:output_type -> holo_store.rpc.RecoverResponse
-	25, // 92: holo_store.rpc.HoloRpc.RecoverBatch:output_type -> holo_store.rpc.RecoverBatchResponse
-	27, // 93: holo_store.rpc.HoloRpc.FetchCommand:output_type -> holo_store.rpc.FetchCommandResponse
-	30, // 94: holo_store.rpc.HoloRpc.ReportExecuted:output_type -> holo_store.rpc.ReportExecutedResponse
-	33, // 95: holo_store.rpc.HoloRpc.LastCommitted:output_type -> holo_store.rpc.LastCommittedResponse
-	35, // 96: holo_store.rpc.HoloRpc.LastExecutedPrefix:output_type -> holo_store.rpc.LastExecutedPrefixResponse
-	37, // 97: holo_store.rpc.HoloRpc.SeedExecutedPrefix:output_type -> holo_store.rpc.SeedExecutedPrefixResponse
-	39, // 98: holo_store.rpc.HoloRpc.Executed:output_type -> holo_store.rpc.ExecutedResponse
-	41, // 99: holo_store.rpc.HoloRpc.MarkVisible:output_type -> holo_store.rpc.MarkVisibleResponse
-	7,  // 100: holo_store.rpc.HoloRpc.KvGet:output_type -> holo_store.rpc.KvGetResponse
-	9,  // 101: holo_store.rpc.HoloRpc.KvBatchGet:output_type -> holo_store.rpc.KvBatchGetResponse
-	43, // 102: holo_store.rpc.HoloRpc.Join:output_type -> holo_store.rpc.JoinResponse
-	45, // 103: holo_store.rpc.HoloRpc.ClusterState:output_type -> holo_store.rpc.ClusterStateResponse
-	47, // 104: holo_store.rpc.HoloRpc.ClusterAddNode:output_type -> holo_store.rpc.ClusterAddNodeResponse
-	49, // 105: holo_store.rpc.HoloRpc.ClusterRemoveNode:output_type -> holo_store.rpc.ClusterRemoveNodeResponse
-	51, // 106: holo_store.rpc.HoloRpc.ClusterSplitMetaRange:output_type -> holo_store.rpc.ClusterSplitMetaRangeResponse
-	53, // 107: holo_store.rpc.HoloRpc.ClusterMetaRebalance:output_type -> holo_store.rpc.ClusterMetaRebalanceResponse
-	55, // 108: holo_store.rpc.HoloRpc.RangeSplit:output_type -> holo_store.rpc.RangeSplitResponse
-	57, // 109: holo_store.rpc.HoloRpc.RangeMerge:output_type -> holo_store.rpc.RangeMergeResponse
-	59, // 110: holo_store.rpc.HoloRpc.RangeRebalance:output_type -> holo_store.rpc.RangeRebalanceResponse
-	62, // 111: holo_store.rpc.HoloRpc.RangeStats:output_type -> holo_store.rpc.RangeStatsResponse
-	65, // 112: holo_store.rpc.HoloRpc.RangeSnapshotLatest:output_type -> holo_store.rpc.RangeSnapshotLatestResponse
-	68, // 113: holo_store.rpc.HoloRpc.RangeWriteLatest:output_type -> holo_store.rpc.RangeWriteLatestResponse
-	72, // 114: holo_store.rpc.HoloRpc.RangeWriteLatestConditional:output_type -> holo_store.rpc.RangeWriteLatestConditionalResponse
-	74, // 115: holo_store.rpc.HoloRpc.RangeApplyLatest:output_type -> holo_store.rpc.RangeApplyLatestResponse
-	77, // 116: holo_store.rpc.HoloRpc.RangeApplyLatestConditional:output_type -> holo_store.rpc.RangeApplyLatestConditionalResponse
-	79, // 117: holo_store.rpc.HoloRpc.ClusterFreeze:output_type -> holo_store.rpc.ClusterFreezeResponse
-	81, // 118: holo_store.rpc.HoloRpc.ClusterCheckpointControl:output_type -> holo_store.rpc.ClusterCheckpointControlResponse
-	85, // [85:119] is the sub-list for method output_type
-	51, // [51:85] is the sub-list for method input_type
-	51, // [51:51] is the sub-list for extension type_name
-	51, // [51:51] is the sub-list for extension extendee
-	0,  // [0:51] is the sub-list for field type_name
+	12, // 3: holo_store.rpc.KvBatchSetRequest.entries:type_name -> holo_store.rpc.KvEntry
+	3,  // 4: holo_store.rpc.PreAcceptRequest.txn_id:type_name -> holo_store.rpc.TxnId
+	3,  // 5: holo_store.rpc.PreAcceptRequest.deps:type_name -> holo_store.rpc.TxnId
+	4,  // 6: holo_store.rpc.PreAcceptRequest.ballot:type_name -> holo_store.rpc.Ballot
+	3,  // 7: holo_store.rpc.PreAcceptResponse.deps:type_name -> holo_store.rpc.TxnId
+	4,  // 8: holo_store.rpc.PreAcceptResponse.promised:type_name -> holo_store.rpc.Ballot
+	15, // 9: holo_store.rpc.PreAcceptBatchRequest.requests:type_name -> holo_store.rpc.PreAcceptRequest
+	16, // 10: holo_store.rpc.PreAcceptBatchResponse.responses:type_name -> holo_store.rpc.PreAcceptResponse
+	3,  // 11: holo_store.rpc.AcceptRequest.txn_id:type_name -> holo_store.rpc.TxnId
+	3,  // 12: holo_store.rpc.AcceptRequest.deps:type_name -> holo_store.rpc.TxnId
+	4,  // 13: holo_store.rpc.AcceptRequest.ballot:type_name -> holo_store.rpc.Ballot
+	4,  // 14: holo_store.rpc.AcceptResponse.promised:type_name -> holo_store.rpc.Ballot
+	19, // 15: holo_store.rpc.AcceptBatchRequest.requests:type_name -> holo_store.rpc.AcceptRequest
+	20, // 16: holo_store.rpc.AcceptBatchResponse.responses:type_name -> holo_store.rpc.AcceptResponse
+	3,  // 17: holo_store.rpc.CommitRequest.txn_id:type_name -> holo_store.rpc.TxnId
+	3,  // 18: holo_store.rpc.CommitRequest.deps:type_name -> holo_store.rpc.TxnId
+	4,  // 19: holo_store.rpc.CommitRequest.ballot:type_name -> holo_store.rpc.Ballot
+	23, // 20: holo_store.rpc.CommitBatchRequest.requests:type_name -> holo_store.rpc.CommitRequest
+	24, // 21: holo_store.rpc.CommitBatchResponse.responses:type_name -> holo_store.rpc.CommitResponse
+	3,  // 22: holo_store.rpc.RecoverRequest.txn_id:type_name -> holo_store.rpc.TxnId
+	4,  // 23: holo_store.rpc.RecoverRequest.ballot:type_name -> holo_store.rpc.Ballot
+	4,  // 24: holo_store.rpc.RecoverResponse.promised:type_name -> holo_store.rpc.Ballot
+	0,  // 25: holo_store.rpc.RecoverResponse.status:type_name -> holo_store.rpc.TxnStatus
+	4,  // 26: holo_store.rpc.RecoverResponse.accepted_ballot:type_name -> holo_store.rpc.Ballot
+	3,  // 27: holo_store.rpc.RecoverResponse.deps:type_name -> holo_store.rpc.TxnId
+	27, // 28: holo_store.rpc.RecoverBatchRequest.requests:type_name -> holo_store.rpc.RecoverRequest
+	28, // 29: holo_store.rpc.RecoverBatchResponse.responses:type_name -> holo_store.rpc.RecoverResponse
+	3,  // 30: holo_store.rpc.FetchCommandRequest.txn_id:type_name -> holo_store.rpc.TxnId
+	33, // 31: holo_store.rpc.ReportExecutedRequest.prefixes:type_name -> holo_store.rpc.ExecutedPrefix
+	3,  // 32: holo_store.rpc.LastCommittedItem.txn_id:type_name -> holo_store.rpc.TxnId
+	37, // 33: holo_store.rpc.LastCommittedResponse.items:type_name -> holo_store.rpc.LastCommittedItem
+	33, // 34: holo_store.rpc.LastExecutedPrefixResponse.prefixes:type_name -> holo_store.rpc.ExecutedPrefix
+	33, // 35: holo_store.rpc.SeedExecutedPrefixRequest.prefixes:type_name -> holo_store.rpc.ExecutedPrefix
+	3,  // 36: holo_store.rpc.ExecutedRequest.txn_id:type_name -> holo_store.rpc.TxnId
+	3,  // 37: holo_store.rpc.MarkVisibleRequest.txn_id:type_name -> holo_store.rpc.TxnId
+	1,  // 38: holo_store.rpc.RangeMergeRequest.action:type_name -> holo_store.rpc.RangeMergeAction
+	66, // 39: holo_store.rpc.RangeStatsResponse.ranges:type_name -> holo_store.rpc.RangeStat
+	5,  // 40: holo_store.rpc.RangeSnapshotLatestEntry.version:type_name -> holo_store.rpc.Version
+	69, // 41: holo_store.rpc.RangeSnapshotLatestResponse.entries:type_name -> holo_store.rpc.RangeSnapshotLatestEntry
+	71, // 42: holo_store.rpc.RangeWriteLatestRequest.entries:type_name -> holo_store.rpc.RangeWriteLatestEntry
+	5,  // 43: holo_store.rpc.RangeWriteLatestConditionalEntry.expected_version:type_name -> holo_store.rpc.Version
+	5,  // 44: holo_store.rpc.RangeWriteLatestConditionalAppliedVersion.version:type_name -> holo_store.rpc.Version
+	74, // 45: holo_store.rpc.RangeWriteLatestConditionalRequest.entries:type_name -> holo_store.rpc.RangeWriteLatestConditionalEntry
+	75, // 46: holo_store.rpc.RangeWriteLatestConditionalResponse.applied_versions:type_name -> holo_store.rpc.RangeWriteLatestConditionalAppliedVersion
+	69, // 47: holo_store.rpc.RangeApplyLatestRequest.entries:type_name -> holo_store.rpc.RangeSnapshotLatestEntry
+	5,  // 48: holo_store.rpc.RangeApplyLatestConditionalEntry.version:type_name -> holo_store.rpc.Version
+	5,  // 49: holo_store.rpc.RangeApplyLatestConditionalEntry.expected_version:type_name -> holo_store.rpc.Version
+	80, // 50: holo_store.rpc.RangeApplyLatestConditionalRequest.entries:type_name -> holo_store.rpc.RangeApplyLatestConditionalEntry
+	2,  // 51: holo_store.rpc.ClusterCheckpointControlRequest.action:type_name -> holo_store.rpc.ClusterCheckpointAction
+	15, // 52: holo_store.rpc.HoloRpc.PreAccept:input_type -> holo_store.rpc.PreAcceptRequest
+	17, // 53: holo_store.rpc.HoloRpc.PreAcceptBatch:input_type -> holo_store.rpc.PreAcceptBatchRequest
+	19, // 54: holo_store.rpc.HoloRpc.Accept:input_type -> holo_store.rpc.AcceptRequest
+	21, // 55: holo_store.rpc.HoloRpc.AcceptBatch:input_type -> holo_store.rpc.AcceptBatchRequest
+	23, // 56: holo_store.rpc.HoloRpc.Commit:input_type -> holo_store.rpc.CommitRequest
+	25, // 57: holo_store.rpc.HoloRpc.CommitBatch:input_type -> holo_store.rpc.CommitBatchRequest
+	27, // 58: holo_store.rpc.HoloRpc.Recover:input_type -> holo_store.rpc.RecoverRequest
+	29, // 59: holo_store.rpc.HoloRpc.RecoverBatch:input_type -> holo_store.rpc.RecoverBatchRequest
+	31, // 60: holo_store.rpc.HoloRpc.FetchCommand:input_type -> holo_store.rpc.FetchCommandRequest
+	34, // 61: holo_store.rpc.HoloRpc.ReportExecuted:input_type -> holo_store.rpc.ReportExecutedRequest
+	36, // 62: holo_store.rpc.HoloRpc.LastCommitted:input_type -> holo_store.rpc.LastCommittedRequest
+	39, // 63: holo_store.rpc.HoloRpc.LastExecutedPrefix:input_type -> holo_store.rpc.LastExecutedPrefixRequest
+	41, // 64: holo_store.rpc.HoloRpc.SeedExecutedPrefix:input_type -> holo_store.rpc.SeedExecutedPrefixRequest
+	43, // 65: holo_store.rpc.HoloRpc.Executed:input_type -> holo_store.rpc.ExecutedRequest
+	45, // 66: holo_store.rpc.HoloRpc.MarkVisible:input_type -> holo_store.rpc.MarkVisibleRequest
+	6,  // 67: holo_store.rpc.HoloRpc.KvGet:input_type -> holo_store.rpc.KvGetRequest
+	8,  // 68: holo_store.rpc.HoloRpc.KvBatchGet:input_type -> holo_store.rpc.KvBatchGetRequest
+	10, // 69: holo_store.rpc.HoloRpc.KvSet:input_type -> holo_store.rpc.KvSetRequest
+	13, // 70: holo_store.rpc.HoloRpc.KvBatchSet:input_type -> holo_store.rpc.KvBatchSetRequest
+	47, // 71: holo_store.rpc.HoloRpc.Join:input_type -> holo_store.rpc.JoinRequest
+	49, // 72: holo_store.rpc.HoloRpc.ClusterState:input_type -> holo_store.rpc.ClusterStateRequest
+	51, // 73: holo_store.rpc.HoloRpc.ClusterAddNode:input_type -> holo_store.rpc.ClusterAddNodeRequest
+	53, // 74: holo_store.rpc.HoloRpc.ClusterRemoveNode:input_type -> holo_store.rpc.ClusterRemoveNodeRequest
+	55, // 75: holo_store.rpc.HoloRpc.ClusterSplitMetaRange:input_type -> holo_store.rpc.ClusterSplitMetaRangeRequest
+	57, // 76: holo_store.rpc.HoloRpc.ClusterMetaRebalance:input_type -> holo_store.rpc.ClusterMetaRebalanceRequest
+	59, // 77: holo_store.rpc.HoloRpc.RangeSplit:input_type -> holo_store.rpc.RangeSplitRequest
+	61, // 78: holo_store.rpc.HoloRpc.RangeMerge:input_type -> holo_store.rpc.RangeMergeRequest
+	63, // 79: holo_store.rpc.HoloRpc.RangeRebalance:input_type -> holo_store.rpc.RangeRebalanceRequest
+	65, // 80: holo_store.rpc.HoloRpc.RangeStats:input_type -> holo_store.rpc.RangeStatsRequest
+	68, // 81: holo_store.rpc.HoloRpc.RangeSnapshotLatest:input_type -> holo_store.rpc.RangeSnapshotLatestRequest
+	72, // 82: holo_store.rpc.HoloRpc.RangeWriteLatest:input_type -> holo_store.rpc.RangeWriteLatestRequest
+	76, // 83: holo_store.rpc.HoloRpc.RangeWriteLatestConditional:input_type -> holo_store.rpc.RangeWriteLatestConditionalRequest
+	78, // 84: holo_store.rpc.HoloRpc.RangeApplyLatest:input_type -> holo_store.rpc.RangeApplyLatestRequest
+	81, // 85: holo_store.rpc.HoloRpc.RangeApplyLatestConditional:input_type -> holo_store.rpc.RangeApplyLatestConditionalRequest
+	83, // 86: holo_store.rpc.HoloRpc.ClusterFreeze:input_type -> holo_store.rpc.ClusterFreezeRequest
+	85, // 87: holo_store.rpc.HoloRpc.ClusterCheckpointControl:input_type -> holo_store.rpc.ClusterCheckpointControlRequest
+	16, // 88: holo_store.rpc.HoloRpc.PreAccept:output_type -> holo_store.rpc.PreAcceptResponse
+	18, // 89: holo_store.rpc.HoloRpc.PreAcceptBatch:output_type -> holo_store.rpc.PreAcceptBatchResponse
+	20, // 90: holo_store.rpc.HoloRpc.Accept:output_type -> holo_store.rpc.AcceptResponse
+	22, // 91: holo_store.rpc.HoloRpc.AcceptBatch:output_type -> holo_store.rpc.AcceptBatchResponse
+	24, // 92: holo_store.rpc.HoloRpc.Commit:output_type -> holo_store.rpc.CommitResponse
+	26, // 93: holo_store.rpc.HoloRpc.CommitBatch:output_type -> holo_store.rpc.CommitBatchResponse
+	28, // 94: holo_store.rpc.HoloRpc.Recover:output_type -> holo_store.rpc.RecoverResponse
+	30, // 95: holo_store.rpc.HoloRpc.RecoverBatch:output_type -> holo_store.rpc.RecoverBatchResponse
+	32, // 96: holo_store.rpc.HoloRpc.FetchCommand:output_type -> holo_store.rpc.FetchCommandResponse
+	35, // 97: holo_store.rpc.HoloRpc.ReportExecuted:output_type -> holo_store.rpc.ReportExecutedResponse
+	38, // 98: holo_store.rpc.HoloRpc.LastCommitted:output_type -> holo_store.rpc.LastCommittedResponse
+	40, // 99: holo_store.rpc.HoloRpc.LastExecutedPrefix:output_type -> holo_store.rpc.LastExecutedPrefixResponse
+	42, // 100: holo_store.rpc.HoloRpc.SeedExecutedPrefix:output_type -> holo_store.rpc.SeedExecutedPrefixResponse
+	44, // 101: holo_store.rpc.HoloRpc.Executed:output_type -> holo_store.rpc.ExecutedResponse
+	46, // 102: holo_store.rpc.HoloRpc.MarkVisible:output_type -> holo_store.rpc.MarkVisibleResponse
+	7,  // 103: holo_store.rpc.HoloRpc.KvGet:output_type -> holo_store.rpc.KvGetResponse
+	9,  // 104: holo_store.rpc.HoloRpc.KvBatchGet:output_type -> holo_store.rpc.KvBatchGetResponse
+	11, // 105: holo_store.rpc.HoloRpc.KvSet:output_type -> holo_store.rpc.KvSetResponse
+	14, // 106: holo_store.rpc.HoloRpc.KvBatchSet:output_type -> holo_store.rpc.KvBatchSetResponse
+	48, // 107: holo_store.rpc.HoloRpc.Join:output_type -> holo_store.rpc.JoinResponse
+	50, // 108: holo_store.rpc.HoloRpc.ClusterState:output_type -> holo_store.rpc.ClusterStateResponse
+	52, // 109: holo_store.rpc.HoloRpc.ClusterAddNode:output_type -> holo_store.rpc.ClusterAddNodeResponse
+	54, // 110: holo_store.rpc.HoloRpc.ClusterRemoveNode:output_type -> holo_store.rpc.ClusterRemoveNodeResponse
+	56, // 111: holo_store.rpc.HoloRpc.ClusterSplitMetaRange:output_type -> holo_store.rpc.ClusterSplitMetaRangeResponse
+	58, // 112: holo_store.rpc.HoloRpc.ClusterMetaRebalance:output_type -> holo_store.rpc.ClusterMetaRebalanceResponse
+	60, // 113: holo_store.rpc.HoloRpc.RangeSplit:output_type -> holo_store.rpc.RangeSplitResponse
+	62, // 114: holo_store.rpc.HoloRpc.RangeMerge:output_type -> holo_store.rpc.RangeMergeResponse
+	64, // 115: holo_store.rpc.HoloRpc.RangeRebalance:output_type -> holo_store.rpc.RangeRebalanceResponse
+	67, // 116: holo_store.rpc.HoloRpc.RangeStats:output_type -> holo_store.rpc.RangeStatsResponse
+	70, // 117: holo_store.rpc.HoloRpc.RangeSnapshotLatest:output_type -> holo_store.rpc.RangeSnapshotLatestResponse
+	73, // 118: holo_store.rpc.HoloRpc.RangeWriteLatest:output_type -> holo_store.rpc.RangeWriteLatestResponse
+	77, // 119: holo_store.rpc.HoloRpc.RangeWriteLatestConditional:output_type -> holo_store.rpc.RangeWriteLatestConditionalResponse
+	79, // 120: holo_store.rpc.HoloRpc.RangeApplyLatest:output_type -> holo_store.rpc.RangeApplyLatestResponse
+	82, // 121: holo_store.rpc.HoloRpc.RangeApplyLatestConditional:output_type -> holo_store.rpc.RangeApplyLatestConditionalResponse
+	84, // 122: holo_store.rpc.HoloRpc.ClusterFreeze:output_type -> holo_store.rpc.ClusterFreezeResponse
+	86, // 123: holo_store.rpc.HoloRpc.ClusterCheckpointControl:output_type -> holo_store.rpc.ClusterCheckpointControlResponse
+	88, // [88:124] is the sub-list for method output_type
+	52, // [52:88] is the sub-list for method input_type
+	52, // [52:52] is the sub-list for extension type_name
+	52, // [52:52] is the sub-list for extension extendee
+	0,  // [0:52] is the sub-list for field type_name
 }
 
 func init() { file_holo_proto_init() }
@@ -5237,7 +5507,7 @@ func file_holo_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_holo_proto_rawDesc), len(file_holo_proto_rawDesc)),
 			NumEnums:      3,
-			NumMessages:   79,
+			NumMessages:   84,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

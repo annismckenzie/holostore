@@ -163,6 +163,8 @@ The full RPC surface is defined in
 **KV RPCs** (client-facing):
 - `KvGet` — read a single key
 - `KvBatchGet` — read multiple keys in one call
+- `KvSet` — write a single key (goes through Accord consensus)
+- `KvBatchSet` — write multiple keys in one call
 
 **Range Management RPCs**:
 - `RangeStats` — per-shard statistics
