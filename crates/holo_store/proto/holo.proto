@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package holo_store.rpc;
 
+option go_package = "holostore-go-example/holo_store/rpc";
+
 service HoloRpc {
   rpc PreAccept(PreAcceptRequest) returns (PreAcceptResponse);
   rpc PreAcceptBatch(PreAcceptBatchRequest) returns (PreAcceptBatchResponse);
